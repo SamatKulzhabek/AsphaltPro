@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DsCorp — Асфальтирование и строительство дорог</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    
+    <!-- ==================== HEADER / НАВИГАЦИЯ ==================== -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#" class="logo">
+                <span class="logo__text">Ds<span class="logo__accent">Corp</span></span>
+            </a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#hero" class="nav__link active">Главная</a></li>
+                    <li class="nav__item"><a href="#fortress" class="nav__link">Технология</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Услуги</a></li>
+                    <li class="nav__item"><a href="#calculator" class="nav__link">Калькулятор</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Проекты</a></li>
+                    <li class="nav__item"><a href="#reviews" class="nav__link">Отзывы</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <a href="tel:+77006000401" class="header__phone">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+                +7 700 600 04 01
+            </a>
+            
+            <button class="burger" id="burger" aria-label="Открыть меню">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+    
+    
+    <!-- ==================== БЛОК 1: HERO (Первый экран) ==================== -->
+    <section class="hero" id="hero">
+        <!-- Параллакс-фон -->
+        <div class="hero__parallax" data-parallax="0.4"></div>
+        
+        <!-- Оверлей -->
+        <div class="hero__overlay"></div>
+        
+        <div class="hero__content container">
+            <!-- Бегущая строка -->
+            <div class="hero__marquee-wrap">
+                <div class="hero__marquee">
+                    <span>АСФАЛЬТИРОВАНИЕ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>БЛАГОУСТРОЙСТВО</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ДОРОГИ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ПЛИТКА</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ЛАНДШАФТ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ДРЕНАЖ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>СВАРКА</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>АСФАЛЬТИРОВАНИЕ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>БЛАГОУСТРОЙСТВО</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ДОРОГИ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ПЛИТКА</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ЛАНДШАФТ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>ДРЕНАЖ</span>
+                    <span class="hero__marquee-dot">·</span>
+                    <span>СВАРКА</span>
+                </div>
+            </div>
+            
+            <!-- Заголовок -->
+            <h1 class="hero__title" data-animate="fade-up">
+                От двора<br>до <span class="text-accent">автомагистрали</span>
+            </h1>
+            
+            <p class="hero__subtitle" data-animate="fade-up" data-delay="200">
+                Один подрядчик · Любой масштаб · Алматы
+            </p>
+            
+            <!-- УТП-блок -->
+            <div class="hero__utp" data-animate="fade-up" data-delay="400">
+                <p class="hero__utp-title">🏗️ Под каждой дорогой — невидимая крепость</p>
+                <p class="hero__utp-text">
+                    Инженерный подход: от геодезии до финишного слоя. Все этапы фиксируем в договоре и даём гарантию <strong>до 5 лет</strong>.
+                </p>
+            </div>
+            
+            <!-- Кнопка -->
+            <a href="#fortress" class="btn btn--primary hero__btn" data-animate="fade-up" data-delay="600">
+                Показать, из чего состоит крепость
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </a>
+            
+            <!-- Цифры -->
+            <div class="hero__stats" data-animate="fade-up" data-delay="800">
+                <div class="hero__stat">
+                    <span class="hero__stat-number">500+</span>
+                    <span class="hero__stat-label">проектов</span>
+                </div>
+                <div class="hero__stat">
+                    <span class="hero__stat-number">10+</span>
+                    <span class="hero__stat-label">лет на рынке</span>
+                </div>
+                <div class="hero__stat">
+                    <span class="hero__stat-number">5</span>
+                    <span class="hero__stat-label">лет гарантия</span>
+                </div>
+                <div class="hero__stat">
+                    <span class="hero__stat-number">4.9</span>
+                    <span class="hero__stat-label">рейтинг 2GIS</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Скролл-индикатор -->
+        <div class="hero__scroll-indicator">
+            <span>Листайте вниз</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+    
+    
+    <!-- ==================== БЛОК 2: "НЕВИДИМАЯ КРЕПОСТЬ" (Слои дороги) ==================== -->
+    <section class="fortress section" id="fortress">
+        <div class="container">
+            <div class="section__header" data-animate="fade-up">
+                <h2 class="section__title">Невидимая крепость под вашей дорогой</h2>
+                <p class="section__subtitle">Инженерный подход к каждому проекту — показываем, из чего состоит надёжность</p>
+            </div>
+            
+            <div class="fortress__grid">
+                <!-- Карточка 1 -->
+                <div class="fortress__card" data-animate="fade-up" data-delay="0">
+                    <div class="fortress__card-number">01</div>
+                    <div class="fortress__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="30" width="40" height="14" rx="2" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="2"/>
+                            <line x1="8" y1="36" x2="40" y2="36" stroke="#f97316" stroke-width="2" stroke-dasharray="4 4"/>
+                            <path d="M14 22L24 14L34 22" stroke="#f97316" stroke-width="2"/>
+                            <line x1="24" y1="22" x2="24" y2="30" stroke="#f97316" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="fortress__card-title">Подготовка грунта</h3>
+                    <p class="fortress__card-text">Геодезия и уплотнение — чтобы покрытие не просело через год.</p>
+                    <div class="fortress__card-depth">25 см глубина выемки</div>
+                </div>
+                
+                <!-- Карточка 2 -->
+                <div class="fortress__card" data-animate="fade-up" data-delay="200">
+                    <div class="fortress__card-number">02</div>
+                    <div class="fortress__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="28" width="40" height="16" rx="2" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="2"/>
+                            <circle cx="14" cy="34" r="2" fill="#f97316"/>
+                            <circle cx="24" cy="34" r="3" fill="#f97316"/>
+                            <circle cx="34" cy="34" r="1.5" fill="#f97316"/>
+                        </svg>
+                    </div>
+                    <h3 class="fortress__card-title">Песчаная подушка</h3>
+                    <p class="fortress__card-text">Дренаж и амортизация — защита от воды и морозного пучения.</p>
+                    <div class="fortress__card-depth">30 см толщина подушки</div>
+                </div>
+                
+                <!-- Карточка 3 -->
+                <div class="fortress__card" data-animate="fade-up" data-delay="400">
+                    <div class="fortress__card-number">03</div>
+                    <div class="fortress__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="24" width="40" height="20" rx="2" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="2"/>
+                            <polygon points="14,28 20,24 18,22 14,26 10,30 12,32" fill="#f97316"/>
+                        </svg>
+                    </div>
+                    <h3 class="fortress__card-title">Щебёночное основание</h3>
+                    <p class="fortress__card-text">Несущий слой для тяжёлых нагрузок — от пешеходов до грузовиков.</p>
+                    <div class="fortress__card-depth">25 см толщина основания</div>
+                </div>
+                
+                <!-- Карточка 4 -->
+                <div class="fortress__card" data-animate="fade-up" data-delay="600">
+                    <div class="fortress__card-number">04</div>
+                    <div class="fortress__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="20" width="40" height="24" rx="2" fill="#f97316" fill-opacity="0.3" stroke="#f97316" stroke-width="2"/>
+                            <rect x="12" y="36" width="24" height="4" rx="1" fill="#f97316"/>
+                        </svg>
+                    </div>
+                    <h3 class="fortress__card-title">Асфальтовое покрытие</h3>
+                    <p class="fortress__card-text">Гладкий, прочный финиш — с гарантией до 5 лет.</p>
+                    <div class="fortress__card-depth">Бесплатный выезд инженера</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- ==================== БЛОК 3: КАЛЬКУЛЯТОР СТОИМОСТИ ==================== -->
+    <section class="calculator section" id="calculator">
+        <div class="container">
+            <div class="section__header" data-animate="fade-up">
+                <h2 class="section__title">Интерактивный конфигуратор</h2>
+                <p class="section__subtitle">Настройте параметры и узнайте ориентировочную стоимость вашего проекта</p>
+            </div>
+            
+            <div class="calculator__widget" data-animate="fade-up" data-delay="200">
+                <div class="calculator__tabs">
+                    <button class="calculator__tab active" data-tab="road">Дорога</button>
+                    <button class="calculator__tab" data-tab="tile">Плитка</button>
+                    <button class="calculator__tab" data-tab="landscape">Ландшафт</button>
+                </div>
+                
+                <!-- Калькулятор дороги -->
+                <div class="calculator__panel active" id="panel-road">
+                    <h3 class="calculator__panel-title">Анатомия дороги</h3>
+                    
+                    <div class="calculator__layers">
+                        <div class="calculator__layer">
+                            <div class="calculator__layer-header">
+                                <span class="calculator__layer-name">Асфальт (финишное покрытие)</span>
+                                <span class="calculator__layer-price">1 000 ₸/см</span>
+                            </div>
+                            <input type="range" min="3" max="8" value="5" class="calculator__slider" id="asphalt-slider">
+                            <span class="calculator__layer-value" id="asphalt-value">5 см</span>
+                        </div>
+                        
+                        <div class="calculator__layer">
+                            <div class="calculator__layer-header">
+                                <span class="calculator__layer-name">ПГС (песчано-гравийная смесь)</span>
+                                <span class="calculator__layer-price">200 ₸/см</span>
+                            </div>
+                            <input type="range" min="3" max="10" value="5" class="calculator__slider" id="pgs-slider">
+                            <span class="calculator__layer-value" id="pgs-value">5 см</span>
+                        </div>
+                        
+                        <div class="calculator__layer">
+                            <div class="calculator__layer-header">
+                                <span class="calculator__layer-name">Щебень (основание)</span>
+                                <span class="calculator__layer-price">150 ₸/см</span>
+                            </div>
+                            <input type="range" min="5" max="20" value="10" class="calculator__slider" id="gravel-slider">
+                            <span class="calculator__layer-value" id="gravel-value">10 см</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator__result">
+                        <div class="calculator__total">
+                            <span>Итого за м²:</span>
+                            <span class="calculator__total-price" id="road-total">8 500 ₸</span>
+                        </div>
+                        <div class="calculator__details" id="road-details">
+                            Асфальт: 5 × 1 000 = 5 000 ₸ · ПГС: 5 × 200 = 1 000 ₸ · Щебень: 10 × 150 = 1 500 ₸ · Грунт: 1 000 ₸
+                        </div>
+                        <a href="#contact" class="btn btn--primary">Получить точный расчёт</a>
+                    </div>
+                </div>
+                
+                <!-- Калькулятор плитки -->
+                <div class="calculator__panel" id="panel-tile">
+                    <h3 class="calculator__panel-title">Калькулятор тротуарной плитки</h3>
+                    
+                    <div class="calculator__layers">
+                        <div class="calculator__layer">
+                            <div class="calculator__layer-header">
+                                <span class="calculator__layer-name">Тип плитки</span>
+                            </div>
+                            <div class="calculator__options">
+                                <button class="calculator__option active" data-tile="bruschatka" data-price="6000">Брусчатка</button>
+                                <button class="calculator__option" data-tile="vibropress" data-price="4500">Вибропрессованная</button>
+                                <button class="calculator__option" data-tile="granit" data-price="12000">Гранитная</button>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator__layer">
+                            <div class="calculator__layer-header">
+                                <span class="calculator__layer-name">Площадь (м²)</span>
+                            </div>
+                            <input type="range" min="10" max="500" value="50" class="calculator__slider" id="tile-area-slider">
+                            <span class="calculator__layer-value" id="tile-area-value">50 м²</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator__result">
+                        <div class="calculator__total">
+                            <span>Итого:</span>
+                            <span class="calculator__total-price" id="tile-total">450 000 - 700 000 ₸</span>
+                        </div>
+                        <div class="calculator__details" id="tile-details">
+                            Материал: 300 000 ₸ · Работа: 150 000 - 400 000 ₸
+                        </div>
+                        <a href="#contact" class="btn btn--primary">Получить точный расчёт</a>
+                    </div>
+                </div>
+                
+                <!-- Калькулятор ландшафта -->
+                <div class="calculator__panel" id="panel-landscape">
+                    <h3 class="calculator__panel-title">Калькулятор ландшафтного дизайна</h3>
+                    
+                    <div class="calculator__layers">
+                        <div class="calculator__checkboxes">
+                            <label class="calculator__checkbox">
+                                <input type="checkbox" data-service="gazon" data-price="3500"> Газон (3 500 ₸/м²)
+                            </label>
+                            <label class="calculator__checkbox">
+                                <input type="checkbox" data-service="posadki" data-price="8000"> Посадки (8 000 ₸/м²)
+                            </label>
+                            <label class="calculator__checkbox">
+                                <input type="checkbox" data-service="poliv" data-price="2500"> Автополив (2 500 ₸/м²)
+                            </label>
+                            <label class="calculator__checkbox">
+                                <input type="checkbox" data-service="osveshenie" data-price="5000"> Освещение (5 000 ₸/м²)
+                            </label>
+                        </div>
+                        
+                        <div class="calculator__layer">
+                            <div class="calculator__layer-header">
+                                <span class="calculator__layer-name">Площадь (м²)</span>
+                            </div>
+                            <input type="range" min="10" max="1000" value="100" class="calculator__slider" id="landscape-area-slider">
+                            <span class="calculator__layer-value" id="landscape-area-value">100 м²</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator__result">
+                        <div class="calculator__total">
+                            <span>Итого:</span>
+                            <span class="calculator__total-price" id="landscape-total">0 ₸</span>
+                        </div>
+                        <div class="calculator__details">Выберите услуги для расчёта</div>
+                        <a href="#contact" class="btn btn--primary">Получить точный расчёт</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- ==================== БЛОК 4: ПРОЕКТЫ (До/После) ==================== -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section__header" data-animate="fade-up">
+                <h2 class="section__title">Реализованные проекты</h2>
+                <p class="section__subtitle">Более 500 проектов по всему Казахстану — от частных дворов до промышленных объектов</p>
+            </div>
+            
+            <div class="projects__grid" data-animate="fade-up" data-delay="200">
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <div class="project-card__badge">2024</div>
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" alt="Проект 1" />
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Асфальтирование двора</h3>
+                        <p class="project-card__info">450 м² · 5 дней</p>
+                        <p class="project-card__desc">Полный цикл: от выемки грунта до финишного покрытия. Гарантия 3 года.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <div class="project-card__badge">2024</div>
+                        <img src="https://images.unsplash.com/photo-1545147985-2b8c9e2e0ff1?w=600&h=400&fit=crop" alt="Проект 2" />
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Парковка на 50 машиномест</h3>
+                        <p class="project-card__info">1 200 м² · 10 дней</p>
+                        <p class="project-card__desc">Усиленное основание под грузовой транспорт. Дренажная система.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <div class="project-card__badge">2024</div>
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" alt="Проект 3" />
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Ландшафт и благоустройство</h3>
+                        <p class="project-card__info">800 м² · 14 дней</p>
+                        <p class="project-card__desc">Мощение, газон, автополив, освещение — всё под ключ.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-card__image">
+                        <div class="project-card__badge">2024</div>
+                        <img src="https://images.unsplash.com/photo-1590856029826-c7a73142e1ae?w=600&h=400&fit=crop" alt="Проект 4" />
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Детская площадка</h3>
+                        <p class="project-card__info">350 м² · 7 дней</p>
+                        <p class="project-card__desc">Травмобезопасное покрытие, игровые зоны, ограждение.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- ==================== БЛОК 5: ОТЗЫВЫ ==================== -->
+    <section class="reviews section" id="reviews">
+        <div class="container">
+            <div class="section__header" data-animate="fade-up">
+                <h2 class="section__title">Нам доверяют</h2>
+                <p class="section__subtitle">Более 200 клиентов оценили качество наших работ</p>
+            </div>
+            
+            <div class="reviews__slider" data-animate="fade-up" data-delay="200">
+                <div class="reviews__track" id="reviews-track">
+                    <div class="review-card">
+                        <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-card__text">Заасфальтировали двор за 3 дня. Качество отличное — уже второй год ни трещинки. Рекомендую!</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">АП</div>
+                            <div>
+                                <span class="review-card__name">Алексей Петров</span>
+                                <span class="review-card__role">Владелец дома</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-card__text">Делали парковку на 50 машиномест. Уложились в сроки и бюджет. Профессиональный подход.</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">МИ</div>
+                            <div>
+                                <span class="review-card__name">Марат Ибрагимов</span>
+                                <span class="review-card__role">Директор ТОО</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-card__text">Ландшафтный дизайн превзошёл ожидания. Газон, дорожки, освещение — всё идеально.</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">АН</div>
+                            <div>
+                                <span class="review-card__name">Айгуль Нурланова</span>
+                                <span class="review-card__role">Ландшафтный проект</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-card__text">Выложили плиткой весь участок — 120 м². Узор ровный, дренаж работает. Через год ничего не просело.</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">ЕС</div>
+                            <div>
+                                <span class="review-card__name">Елена Смирнова</span>
+                                <span class="review-card__role">Тротуарная плитка</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reviews__controls">
+                    <button class="reviews__btn reviews__btn--prev" id="review-prev">←</button>
+                    <button class="reviews__btn reviews__btn--next" id="review-next">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- ==================== БЛОК 6: КОНТАКТЫ / ФУТЕР ==================== -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="contact__grid">
+                <div class="contact__info" data-animate="fade-up">
+                    <h2 class="section__title">Начнём проект?</h2>
+                    <p class="section__subtitle">Бесплатный выезд инженера за 24 часа. Составим смету без обязательств.</p>
+                    
+                    <div class="contact__items">
+                        <div class="contact__item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                            <a href="tel:+77006000401">+7 700 600 04 01</a>
+                        </div>
+                        <div class="contact__item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span>Пн–Сб: 08:00–18:00</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/77006000401" class="btn btn--whatsapp" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Написать в WhatsApp
+                    </a>
+                </div>
+                
+                <form class="contact__form" data-animate="fade-up" data-delay="200">
+                    <h3 class="contact__form-title">Оставьте заявку</h3>
+                    <input type="text" placeholder="Ваше имя" class="contact__input" required />
+                    <input type="tel" placeholder="Номер телефона" class="contact__input" required />
+                    <textarea placeholder="Опишите задачу (площадь, объект, пожелания)" class="contact__input contact__textarea" rows="4"></textarea>
+                    <button type="submit" class="btn btn--primary contact__submit">Отправить заявку</button>
+                    <p class="contact__note">Ответ за 15 минут · Бесплатный выезд · Без обязательств</p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- ==================== ФУТЕР ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">
+                    <span class="logo__text">Ds<span class="logo__accent">Corp</span></span>
+                    <p>© 2024 ТОО DsCorp. Все права защищены.</p>
+                </div>
+                <div class="footer__links">
+                    <a href="#hero">Главная</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#projects">Проекты</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+                <div class="footer__cert">
+                    <span>ISO 9001</span>
+                    <span>СТ РК</span>
+                    <span>ГОСТ</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Подключаем JS -->
+    <script src="script.js"></script>
+</body>
+</html>
