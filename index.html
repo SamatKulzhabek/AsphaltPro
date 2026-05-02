@@ -3,44 +3,80 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DsCorp — Асфальтирование и строительство дорог</title>
-    
+    <title>AsphaltPro — Асфальтирование и строительство дорог</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    
+
+    <link rel="icon" type="image/png" href="./imgs/favicon.ico" />
+    <link rel="apple-touch-icon" href="./imgs/favicon.ico" />
+
     <!-- Подключаем CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- SEO -->
+    <meta name="description" content="Асфальтирование дорог, укладка тротуарной плитки, благоустройство территории в Алматы. Бесплатный выезд инженера, гарантия 5 лет. 500+ проектов." />
+    <meta name="keywords" content="асфальтирование, укладка асфальта, благоустройство территории, тротуарная плитка, дорожные работы, Алматы, Казахстан" />
+    <meta name="author" content="AsphaltPro" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://asphaltpro.kz/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AsphaltPro — Асфальтирование и благоустройство территории" />
+    <meta property="og:description" content="Профессиональное асфальтирование дорог, укладка плитки, ландшафтный дизайн. Бесплатный выезд инженера за 24 часа. Гарантия 5 лет." />
+    <meta property="og:image" content="./imgs/bg.png" />
+    <meta property="og:url" content="https://asphaltpro.kz/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "AsphaltPro",
+            "description": "Асфальтирование дорог и благоустройство территории в Алматы",
+            "telephone": "+77079400090",
+            "email": "zhanybekovyerbol@gmail.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Алматы",
+                "addressCountry": "KZ"
+            },
+            "openingHours": "Mo-Sa 08:00-18:00",
+            "priceRange": "от 5 000 ₸/м²"
+        }
+    </script>
 </head>
 <body>
-    
+
     <!-- ==================== HEADER / НАВИГАЦИЯ ==================== -->
     <header class="header" id="header">
         <div class="container header__inner">
             <a href="#" class="logo">
-                <span class="logo__text">Ds<span class="logo__accent">Corp</span></span>
+                <span class="logo__text">Asphalt<span class="logo__accent">Pro</span></span>
             </a>
-            
+
             <nav class="nav" id="nav">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#hero" class="nav__link active">Главная</a></li>
                     <li class="nav__item"><a href="#fortress" class="nav__link">Технология</a></li>
                     <li class="nav__item"><a href="#services" class="nav__link">Услуги</a></li>
+                    <li class="nav__item"><a href="#process" class="nav__link">Этапы</a></li>
                     <li class="nav__item"><a href="#calculator" class="nav__link">Калькулятор</a></li>
-                    <li class="nav__item"><a href="#projects" class="nav__link">Проекты</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Визуализация </a></li>
+                    <li class="nav__item"><a href="#myprojects" class="nav__link">Проекты</a></li>
                     <li class="nav__item"><a href="#reviews" class="nav__link">Отзывы</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
                 </ul>
             </nav>
-            
-            <a href="tel:+77006000401" class="header__phone">
+
+            <a href="tel:+77079400090" class="header__phone">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
                 </svg>
-                +7 700 600 04 01
+                +7 707 940 0090
             </a>
-            
+
             <button class="burger" id="burger" aria-label="Открыть меню">
                 <span class="burger__line"></span>
                 <span class="burger__line"></span>
@@ -48,380 +84,752 @@
             </button>
         </div>
     </header>
-    
-    
+
+
     <!-- ==================== БЛОК 1: HERO (Первый экран) ==================== -->
     <section class="hero" id="hero">
         <!-- Параллакс-фон -->
-        <div class="hero__parallax" data-parallax="0.4"></div>
-        
-        <!-- Оверлей -->
-        <div class="hero__overlay"></div>
-        
+        <div class="hero__bg">
+            <div class="hero__bg-image" data-parallax="0.5">
+                <img src="./imgs/bg.png" alt="Дорога" />
+            </div>
+            <div class="hero__bg-overlay"></div>
+        </div>
+
+        <!-- Градиентный оверлей снизу -->
+        <div class="hero__gradient"></div>
+
+        <!-- Основной контент -->
         <div class="hero__content container">
             <!-- Бегущая строка -->
             <div class="hero__marquee-wrap">
                 <div class="hero__marquee">
-                    <span>АСФАЛЬТИРОВАНИЕ</span>
+                    <span class="hero__marquee-item">АСФАЛЬТИРОВАНИЕ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>БЛАГОУСТРОЙСТВО</span>
+                    <span class="hero__marquee-item">БЛАГОУСТРОЙСТВО</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ДОРОГИ</span>
+                    <span class="hero__marquee-item">ДОРОГИ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ПЛИТКА</span>
+                    <span class="hero__marquee-item">ПЛИТКА</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ЛАНДШАФТ</span>
+                    <span class="hero__marquee-item">ЛАНДШАФТ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ДРЕНАЖ</span>
+                    <span class="hero__marquee-item">ДРЕНАЖ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>СВАРКА</span>
+                    <span class="hero__marquee-item">СВАРКА</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>АСФАЛЬТИРОВАНИЕ</span>
+                    <!-- Дублируем для бесшовной анимации -->
+                    <span class="hero__marquee-item">АСФАЛЬТИРОВАНИЕ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>БЛАГОУСТРОЙСТВО</span>
+                    <span class="hero__marquee-item">БЛАГОУСТРОЙСТВО</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ДОРОГИ</span>
+                    <span class="hero__marquee-item">ДОРОГИ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ПЛИТКА</span>
+                    <span class="hero__marquee-item">ПЛИТКА</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ЛАНДШАФТ</span>
+                    <span class="hero__marquee-item">ЛАНДШАФТ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>ДРЕНАЖ</span>
+                    <span class="hero__marquee-item">ДРЕНАЖ</span>
                     <span class="hero__marquee-dot">·</span>
-                    <span>СВАРКА</span>
+                    <span class="hero__marquee-item">СВАРКА</span>
                 </div>
             </div>
-            
+
             <!-- Заголовок -->
             <h1 class="hero__title" data-animate="fade-up">
-                От двора<br>до <span class="text-accent">автомагистрали</span>
+                От двора<br>
+                до <span class="text-accent">автомагистрали</span>
             </h1>
-            
+
             <p class="hero__subtitle" data-animate="fade-up" data-delay="200">
                 Один подрядчик · Любой масштаб · Алматы
             </p>
-            
-            <!-- УТП-блок -->
+
+            <!-- УТП-блок (усиленный) -->
             <div class="hero__utp" data-animate="fade-up" data-delay="400">
-                <p class="hero__utp-title">🏗️ Под каждой дорогой — невидимая крепость</p>
-                <p class="hero__utp-text">
-                    Инженерный подход: от геодезии до финишного слоя. Все этапы фиксируем в договоре и даём гарантию <strong>до 5 лет</strong>.
-                </p>
+                <div class="hero__utp-icon">🏗️</div>
+                <div class="hero__utp-content">
+                    <p class="hero__utp-title">Под каждой дорогой — невидимая крепость</p>
+                    <p class="hero__utp-text">
+                        Инженерный подход: от геодезии до финишного слоя.<br class="hero__utp-br" />
+                        Все этапы фиксируем в договоре и даём гарантию <strong>до 5 лет</strong>.
+                    </p>
+                </div>
             </div>
-            
-            <!-- Кнопка -->
-            <a href="#fortress" class="btn btn--primary hero__btn" data-animate="fade-up" data-delay="600">
-                Показать, из чего состоит крепость
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                </svg>
-            </a>
-            
-            <!-- Цифры -->
+
+            <!-- Кнопки -->
+            <div class="hero__actions" data-animate="fade-up" data-delay="600">
+                <a href="#fortress" class="btn btn--primary btn--lg">
+                    <span>Показать, из чего состоит крепость</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                    </svg>
+                </a>
+                <a href="#calculator" class="btn btn--outline btn--lg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M3 9h18M9 21V9"/>
+                    </svg>
+                    <span>Рассчитать стоимость</span>
+                </a>
+            </div>
+
+            <!-- Цифры / Социальное доказательство -->
             <div class="hero__stats" data-animate="fade-up" data-delay="800">
                 <div class="hero__stat">
-                    <span class="hero__stat-number">500+</span>
-                    <span class="hero__stat-label">проектов</span>
+                    <span class="hero__stat-number">500<span class="hero__stat-plus">+</span></span>
+                    <span class="hero__stat-label">выполненных<br />проектов</span>
                 </div>
+                <div class="hero__stat-divider"></div>
                 <div class="hero__stat">
-                    <span class="hero__stat-number">10+</span>
-                    <span class="hero__stat-label">лет на рынке</span>
+                    <span class="hero__stat-number">10<span class="hero__stat-plus">+</span></span>
+                    <span class="hero__stat-label">лет на рынке<br />Казахстана</span>
                 </div>
+                <div class="hero__stat-divider"></div>
                 <div class="hero__stat">
                     <span class="hero__stat-number">5</span>
-                    <span class="hero__stat-label">лет гарантия</span>
+                    <span class="hero__stat-label">лет гарантии<br />на все работы</span>
                 </div>
+                <div class="hero__stat-divider"></div>
                 <div class="hero__stat">
-                    <span class="hero__stat-number">4.9</span>
-                    <span class="hero__stat-label">рейтинг 2GIS</span>
+                    <div class="hero__stat-rating">
+                        <span class="hero__stat-number">4.9</span>
+                        <span class="hero__stat-stars">★★★★★</span>
+                    </div>
+                    <span class="hero__stat-label">рейтинг<br />на 2GIS</span>
                 </div>
             </div>
         </div>
-        
+
         <!-- Скролл-индикатор -->
-        <div class="hero__scroll-indicator">
-            <span>Листайте вниз</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
+        <div class="hero__scroll">
+            <span class="hero__scroll-text">Листайте вниз</span>
+            <div class="hero__scroll-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </div>
         </div>
     </section>
-    
-    
-    <!-- ==================== БЛОК 2: "НЕВИДИМАЯ КРЕПОСТЬ" (Слои дороги) ==================== -->
-    <section class="fortress section" id="fortress">
+
+
+    <!-- ==================== БЛОК 2: АНАТОМИЯ ДОРОГИ (3D) ==================== -->
+    <section class="anatomy section" id="fortress">
+        <div class="container">
+            <div class="anatomy__grid">
+                <!-- Левая часть: 3D-схема дороги в перспективе -->
+                <div class="anatomy__visual" data-animate="fade-up">
+                    <div class="anatomy__3d-scene">
+                        <div class="anatomy__3d-road" id="anatomy-3d-road">
+                            <!-- Слой 4: Асфальт -->
+                            <div class="anatomy__3d-layer anatomy__3d-layer--asphalt" data-layer="4">
+                                <div class="anatomy__3d-top"></div>
+                                <div class="anatomy__3d-front"></div>
+                                <div class="anatomy__3d-side"></div>
+                                <div class="anatomy__3d-label">
+                                    <span class="anatomy__3d-name">АСФАЛЬТ</span>
+                                    <span class="anatomy__3d-thick">5 см</span>
+                                </div>
+                            </div>
+
+                            <!-- Слой 3: Щебень -->
+                            <div class="anatomy__3d-layer anatomy__3d-layer--gravel" data-layer="3">
+                                <div class="anatomy__3d-top"></div>
+                                <div class="anatomy__3d-front"></div>
+                                <div class="anatomy__3d-side"></div>
+                                <div class="anatomy__3d-label">
+                                    <span class="anatomy__3d-name">ЩЕБЕНЬ</span>
+                                    <span class="anatomy__3d-thick">25 см</span>
+                                </div>
+                            </div>
+
+                            <!-- Слой 2: Песок -->
+                            <div class="anatomy__3d-layer anatomy__3d-layer--sand" data-layer="2">
+                                <div class="anatomy__3d-top"></div>
+                                <div class="anatomy__3d-front"></div>
+                                <div class="anatomy__3d-side"></div>
+                                <div class="anatomy__3d-label">
+                                    <span class="anatomy__3d-name">ПЕСОК</span>
+                                    <span class="anatomy__3d-thick">30 см</span>
+                                </div>
+                            </div>
+
+                            <!-- Слой 1: Грунт -->
+                            <div class="anatomy__3d-layer anatomy__3d-layer--soil" data-layer="1">
+                                <div class="anatomy__3d-top"></div>
+                                <div class="anatomy__3d-front"></div>
+                                <div class="anatomy__3d-side"></div>
+                                <div class="anatomy__3d-label">
+                                    <span class="anatomy__3d-name">ГРУНТ</span>
+                                    <span class="anatomy__3d-thick">основа</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая часть: информация о слое -->
+                <div class="anatomy__info" data-animate="fade-up" data-delay="200">
+                    <div class="anatomy__header">
+                        <span class="anatomy__step" id="anatomy-step">04 / 04</span>
+                        <h2 class="anatomy__title" id="anatomy-title">Асфальтовое покрытие</h2>
+                        <p class="anatomy__desc" id="anatomy-desc">
+                            Гладкий, прочный финиш — с гарантией до 5 лет.
+                        </p>
+                    </div>
+                    <div class="anatomy__details">
+                        <div class="anatomy__detail">
+                            <span class="anatomy__detail-value" id="anatomy-thickness">5 см</span>
+                            <span class="anatomy__detail-label">толщина</span>
+                        </div>
+                    </div>
+                    <div class="anatomy__nav">
+                        <button class="anatomy__nav-btn" id="anatomy-prev" aria-label="Предыдущий слой">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <div class="anatomy__dots" id="anatomy-dots">
+                            <span class="anatomy__dot" data-dot="1"></span>
+                            <span class="anatomy__dot" data-dot="2"></span>
+                            <span class="anatomy__dot" data-dot="3"></span>
+                            <span class="anatomy__dot active" data-dot="4"></span>
+                        </div>
+                        <button class="anatomy__nav-btn" id="anatomy-next" aria-label="Следующий слой">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                    <div class="anatomy__cta">
+                        <p class="anatomy__cta-text">Бесплатный выезд инженера и составление сметы — без обязательств</p>
+                        <a href="#contact" class="btn btn--primary">
+                            РАССЧИТАТЬ СТОИМОСТЬ
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== БЛОК: НАШИ УСЛУГИ ==================== -->
+    <section class="services section" id="services">
         <div class="container">
             <div class="section__header" data-animate="fade-up">
-                <h2 class="section__title">Невидимая крепость под вашей дорогой</h2>
-                <p class="section__subtitle">Инженерный подход к каждому проекту — показываем, из чего состоит надёжность</p>
+                <h2 class="section__title">Услуги и стоимость</h2>
+                <p class="section__subtitle">Ориентировочная стоимость — точный расчёт после бесплатного выезда инженера</p>
             </div>
-            
-            <div class="fortress__grid">
-                <!-- Карточка 1 -->
-                <div class="fortress__card" data-animate="fade-up" data-delay="0">
-                    <div class="fortress__card-number">01</div>
-                    <div class="fortress__card-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="4" y="30" width="40" height="14" rx="2" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="2"/>
-                            <line x1="8" y1="36" x2="40" y2="36" stroke="#f97316" stroke-width="2" stroke-dasharray="4 4"/>
-                            <path d="M14 22L24 14L34 22" stroke="#f97316" stroke-width="2"/>
-                            <line x1="24" y1="22" x2="24" y2="30" stroke="#f97316" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="fortress__card-title">Подготовка грунта</h3>
-                    <p class="fortress__card-text">Геодезия и уплотнение — чтобы покрытие не просело через год.</p>
-                    <div class="fortress__card-depth">25 см глубина выемки</div>
-                </div>
-                
-                <!-- Карточка 2 -->
-                <div class="fortress__card" data-animate="fade-up" data-delay="200">
-                    <div class="fortress__card-number">02</div>
-                    <div class="fortress__card-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="4" y="28" width="40" height="16" rx="2" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="2"/>
-                            <circle cx="14" cy="34" r="2" fill="#f97316"/>
-                            <circle cx="24" cy="34" r="3" fill="#f97316"/>
-                            <circle cx="34" cy="34" r="1.5" fill="#f97316"/>
-                        </svg>
-                    </div>
-                    <h3 class="fortress__card-title">Песчаная подушка</h3>
-                    <p class="fortress__card-text">Дренаж и амортизация — защита от воды и морозного пучения.</p>
-                    <div class="fortress__card-depth">30 см толщина подушки</div>
-                </div>
-                
-                <!-- Карточка 3 -->
-                <div class="fortress__card" data-animate="fade-up" data-delay="400">
-                    <div class="fortress__card-number">03</div>
-                    <div class="fortress__card-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="4" y="24" width="40" height="20" rx="2" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="2"/>
-                            <polygon points="14,28 20,24 18,22 14,26 10,30 12,32" fill="#f97316"/>
-                        </svg>
-                    </div>
-                    <h3 class="fortress__card-title">Щебёночное основание</h3>
-                    <p class="fortress__card-text">Несущий слой для тяжёлых нагрузок — от пешеходов до грузовиков.</p>
-                    <div class="fortress__card-depth">25 см толщина основания</div>
-                </div>
-                
-                <!-- Карточка 4 -->
-                <div class="fortress__card" data-animate="fade-up" data-delay="600">
-                    <div class="fortress__card-number">04</div>
-                    <div class="fortress__card-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="4" y="20" width="40" height="24" rx="2" fill="#f97316" fill-opacity="0.3" stroke="#f97316" stroke-width="2"/>
+
+            <div class="services__grid">
+                <!-- Услуга 1: Асфальтирование -->
+                <div class="service-card" data-animate="fade-up" data-delay="0">
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="20" width="40" height="24" rx="2" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-width="2"/>
                             <rect x="12" y="36" width="24" height="4" rx="1" fill="#f97316"/>
+                            <line x1="10" y1="28" x2="38" y2="28" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4 3"/>
                         </svg>
                     </div>
-                    <h3 class="fortress__card-title">Асфальтовое покрытие</h3>
-                    <p class="fortress__card-text">Гладкий, прочный финиш — с гарантией до 5 лет.</p>
-                    <div class="fortress__card-depth">Бесплатный выезд инженера</div>
+                    <h3 class="service-card__title">Асфальтирование</h3>
+                    <div class="service-card__price">от 5 000 ₸/м²</div>
+                    <p class="service-card__desc">Подготовка основания, укладка, уплотнение</p>
+                    <div class="service-card__time">5–14 дней</div>
+                </div>
+
+                <!-- Услуга 2: Тротуарная плитка -->
+                <div class="service-card" data-animate="fade-up" data-delay="150">
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                            <rect x="6" y="22" width="36" height="22" rx="2" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-width="2"/>
+                            <rect x="8" y="24" width="10" height="8" rx="1" fill="#f97316" opacity="0.6"/>
+                            <rect x="20" y="24" width="10" height="8" rx="1" fill="#f97316" opacity="0.4"/>
+                            <rect x="32" y="24" width="8" height="8" rx="1" fill="#f97316" opacity="0.5"/>
+                            <rect x="8" y="34" width="8" height="8" rx="1" fill="#f97316" opacity="0.5"/>
+                            <rect x="18" y="34" width="10" height="8" rx="1" fill="#f97316" opacity="0.6"/>
+                            <rect x="30" y="34" width="10" height="8" rx="1" fill="#f97316" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Тротуарная плитка</h3>
+                    <div class="service-card__price">от 4 500 ₸/м²</div>
+                    <p class="service-card__desc">Основание, подушка, укладка, затирка швов</p>
+                    <div class="service-card__time">3–10 дней</div>
+                </div>
+
+                <!-- Услуга 3: Ландшафтный дизайн -->
+                <div class="service-card" data-animate="fade-up" data-delay="300">
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" fill="#f97316" fill-opacity="0.1" stroke="#f97316" stroke-width="2"/>
+                            <path d="M24 10 C24 10 28 18 28 24 C28 30 24 38 24 38 C24 38 20 30 20 24 C20 18 24 10 24 10Z" fill="#f97316" opacity="0.5"/>
+                            <circle cx="24" cy="24" r="3" fill="#f97316"/>
+                            <line x1="24" y1="6" x2="24" y2="10" stroke="#f97316" stroke-width="2"/>
+                            <line x1="24" y1="38" x2="24" y2="42" stroke="#f97316" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Ландшафтный дизайн</h3>
+                    <div class="service-card__price">от 3 000 ₸/м²</div>
+                    <p class="service-card__desc">Проект, озеленение, дорожки, освещение</p>
+                    <div class="service-card__time">7–21 день</div>
+                </div>
+
+                <!-- Услуга 4: Демонтажные работы -->
+                <div class="service-card" data-animate="fade-up" data-delay="450">
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="14" width="32" height="28" rx="2" fill="#f97316" fill-opacity="0.1" stroke="#f97316" stroke-width="2"/>
+                            <rect x="14" y="10" width="20" height="6" rx="1" fill="#f97316" fill-opacity="0.3" stroke="#f97316" stroke-width="2"/>
+                            <path d="M22 8 L22 10 M26 8 L26 10" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="18" cy="26" r="5" fill="#f97316" opacity="0.3"/>
+                            <circle cx="30" cy="26" r="5" fill="#f97316" opacity="0.3"/>
+                            <circle cx="24" cy="26" r="3" fill="#f97316" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Демонтажные работы</h3>
+                    <div class="service-card__price">от 20 000 ₸/м³</div>
+                    <p class="service-card__desc">Снос конструкций, демонтаж покрытий, вывоз мусора</p>
+                    <div class="service-card__time">1–5 дней</div>
+                </div>
+            </div>
+
+            <!-- Примечание и CTA -->
+            <div class="services__footer" data-animate="fade-up" data-delay="600">
+                <p class="services__note">* Точная стоимость зависит от объёма, сложности и удалённости объекта</p>
+                <a href="#contact" class="btn btn--primary">
+                    Получить точный расчёт
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== БЛОК: КАК МЫ РАБОТАЕМ (ШАХМАТНЫЙ ПОРЯДОК) ==================== -->
+    <section class="process section" id="process">
+        <div class="container">
+            <div class="section__header" data-animate="fade-up">
+                <h2 class="section__title">Как мы работаем</h2>
+                <p class="section__subtitle">От заявки до гарантии — 5 чётких этапов, прозрачные сроки и полный контроль на каждом шаге</p>
+            </div>
+
+            <div class="process__zigzag">
+                <!-- Этап 1: Заявка (СЛЕВА) -->
+                <div class="process__row process__row--left" data-animate="fade-up" data-delay="0">
+                    <div class="process__card">
+                        <div class="process__card-top">
+                            <span class="process__card-number">01</span>
+                            <div class="process__card-icon">
+                                <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+                                    <rect x="8" y="12" width="32" height="28" rx="4" fill="none" stroke="#f97316" stroke-width="2.5"/>
+                                    <path d="M16 24 L22 30 L32 20" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="process__card-title">Заявка</h3>
+                        <p class="process__card-desc">Оставьте заявку — мы свяжемся в течение 2 часов для уточнения деталей</p>
+                        <span class="process__card-time">~2 часа</span>
+                    </div>
+                    <div class="process__connector">
+                        <div class="process__dot">1</div>
+                    </div>
+                    <div class="process__image">
+                        <img src="./imgs/s1.png" alt="Заявка" loading="lazy" />
+                        <div class="process__image-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- Этап 2: Замер (СПРАВА) -->
+                <div class="process__row process__row--right" data-animate="fade-up" data-delay="150">
+                    <div class="process__image">
+                        <img src="./imgs/s2.png" alt="Замер" loading="lazy" />
+                        <div class="process__image-overlay"></div>
+                    </div>
+                    <div class="process__connector">
+                        <div class="process__dot">2</div>
+                    </div>
+                    <div class="process__card">
+                        <div class="process__card-top">
+                            <span class="process__card-number">02</span>
+                            <div class="process__card-icon">
+                                <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+                                    <rect x="6" y="8" width="36" height="34" rx="3" fill="none" stroke="#f97316" stroke-width="2.5"/>
+                                    <line x1="6" y1="18" x2="42" y2="18" stroke="#f97316" stroke-width="2"/>
+                                    <circle cx="24" cy="30" r="8" fill="none" stroke="#f97316" stroke-width="2.5"/>
+                                    <line x1="24" y1="24" x2="24" y2="30" stroke="#f97316" stroke-width="2"/>
+                                    <line x1="20" y1="30" x2="28" y2="30" stroke="#f97316" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="process__card-title">Замер</h3>
+                        <p class="process__card-desc">Бесплатный выезд инженера на объект для замеров и оценки</p>
+                        <span class="process__card-time">1–2 дня</span>
+                    </div>
+                </div>
+
+                <!-- Этап 3: Проект (СЛЕВА) -->
+                <div class="process__row process__row--left" data-animate="fade-up" data-delay="300">
+                    <div class="process__card">
+                        <div class="process__card-top">
+                            <span class="process__card-number">03</span>
+                            <div class="process__card-icon">
+                                <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+                                    <rect x="8" y="6" width="32" height="36" rx="3" fill="none" stroke="#f97316" stroke-width="2.5"/>
+                                    <line x1="14" y1="16" x2="34" y2="16" stroke="#f97316" stroke-width="2"/>
+                                    <line x1="14" y1="22" x2="28" y2="22" stroke="#f97316" stroke-width="2" opacity="0.6"/>
+                                    <line x1="14" y1="28" x2="30" y2="28" stroke="#f97316" stroke-width="2" opacity="0.4"/>
+                                    <line x1="14" y1="34" x2="22" y2="34" stroke="#f97316" stroke-width="2" opacity="0.3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="process__card-title">Проект</h3>
+                        <p class="process__card-desc">Составляем смету, план работ и согласовываем с вами каждую деталь</p>
+                        <span class="process__card-time">2–3 дня</span>
+                    </div>
+                    <div class="process__connector">
+                        <div class="process__dot">3</div>
+                    </div>
+                    <div class="process__image">
+                        <img src="./imgs/s3.jpg" alt="Проект" loading="lazy" />
+                        <div class="process__image-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- Этап 4: Строительство (СПРАВА) -->
+                <div class="process__row process__row--right" data-animate="fade-up" data-delay="450">
+                    <div class="process__image">
+                        <img src="./imgs/s4.jpg" alt="Строительство" loading="lazy" />
+                        <div class="process__image-overlay"></div>
+                    </div>
+                    <div class="process__connector">
+                        <div class="process__dot">4</div>
+                    </div>
+                    <div class="process__card">
+                        <div class="process__card-top">
+                            <span class="process__card-number">04</span>
+                            <div class="process__card-icon">
+                                <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+                                    <path d="M8 38 L8 18 L24 6 L40 18 L40 38 Z" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round"/>
+                                    <rect x="18" y="24" width="12" height="14" fill="none" stroke="#f97316" stroke-width="2.5"/>
+                                    <line x1="20" y1="30" x2="28" y2="30" stroke="#f97316" stroke-width="2"/>
+                                    <rect x="28" y="16" width="8" height="8" fill="none" stroke="#f97316" stroke-width="2.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="process__card-title">Строительство</h3>
+                        <p class="process__card-desc">Профессиональное выполнение с ежедневными фотоотчётами и контролем качества</p>
+                        <span class="process__card-time">5–14 дней</span>
+                    </div>
+                </div>
+
+                <!-- Этап 5: Гарантия (СЛЕВА) -->
+                <div class="process__row process__row--left" data-animate="fade-up" data-delay="600">
+                    <div class="process__card">
+                        <div class="process__card-top">
+                            <span class="process__card-number">05</span>
+                            <div class="process__card-icon">
+                                <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="18" fill="none" stroke="#f97316" stroke-width="2.5"/>
+                                    <path d="M16 24 L22 30 L32 18" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="process__card-title">Гарантия</h3>
+                        <p class="process__card-desc">Принимаем объект вместе с вами. Гарантия до 5 лет на все виды работ</p>
+                        <span class="process__card-time">до 5 лет</span>
+                    </div>
+                    <div class="process__connector">
+                        <div class="process__dot">5</div>
+                    </div>
+                    <div class="process__image">
+                        <img src="./imgs/s5.png" alt="Гарантия" loading="lazy" />
+                        <div class="process__image-overlay"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    
+
     <!-- ==================== БЛОК 3: КАЛЬКУЛЯТОР СТОИМОСТИ ==================== -->
     <section class="calculator section" id="calculator">
         <div class="container">
             <div class="section__header" data-animate="fade-up">
-                <h2 class="section__title">Интерактивный конфигуратор</h2>
-                <p class="section__subtitle">Настройте параметры и узнайте ориентировочную стоимость вашего проекта</p>
+                <h2 class="section__title">Интерактивный калькулятор</h2>
+                <p class="section__subtitle">Сравнивайте составы дорог в реальном времени</p>
             </div>
-            
+
             <div class="calculator__widget" data-animate="fade-up" data-delay="200">
-                <div class="calculator__tabs">
-                    <button class="calculator__tab active" data-tab="road">Дорога</button>
-                    <button class="calculator__tab" data-tab="tile">Плитка</button>
-                    <button class="calculator__tab" data-tab="landscape">Ландшафт</button>
-                </div>
-                
-                <!-- Калькулятор дороги -->
+                <!-- Табы -->
+
+
+                <!-- ===== КАЛЬКУЛЯТОР ДОРОГИ ===== -->
                 <div class="calculator__panel active" id="panel-road">
-                    <h3 class="calculator__panel-title">Анатомия дороги</h3>
-                    
-                    <div class="calculator__layers">
-                        <div class="calculator__layer">
-                            <div class="calculator__layer-header">
-                                <span class="calculator__layer-name">Асфальт (финишное покрытие)</span>
-                                <span class="calculator__layer-price">1 000 ₸/см</span>
+                    <div class="road-calc">
+                        <!-- Переключатель типа дороги -->
+                        <div class="road-calc__types">
+                            <button class="road-calc__type active" data-type="econom">
+                                <span class="road-calc__type-name">Экономичный</span>
+                                <span class="road-calc__type-price">8 500 ₸/м²</span>
+                            </button>
+                            <button class="road-calc__type" data-type="standard">
+                                <span class="road-calc__type-name">Стандартный</span>
+                                <span class="road-calc__type-price">12 000 ₸/м²</span>
+                            </button>
+                            <button class="road-calc__type" data-type="premium">
+                                <span class="road-calc__type-name">Премиум</span>
+                                <span class="road-calc__type-price">18 500 ₸/м²</span>
+                            </button>
+                        </div>
+
+                        <div class="road-calc__body">
+                            <!-- 3D-схема -->
+                            <div class="road-calc__visual-3d">
+                                <div class="anatomy__3d-scene" style="padding: 20px 10px; min-height: 320px; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at 50% 30%, #1a1a1a 0%, #0a0a0a 70%);">
+                                    <div class="anatomy__3d-road" id="calc-3d-road" style="max-width: 300px; width: 100%; height: 200px; transform: none; position: relative; display: flex; flex-direction: column; gap: 0;">
+                                        <!-- Асфальт -->
+                                        <div class="anatomy__3d-layer anatomy__3d-layer--asphalt" id="calc-layer-asphalt" style="position: absolute; left: 0; right: 0; top: 0; height: 30px; z-index: 4; opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; transform-style: preserve-3d;">
+                                            <div class="anatomy__3d-top"></div>
+                                            <div class="anatomy__3d-front"></div>
+                                            <div class="anatomy__3d-side" style="width: 40px;"></div>
+                                            <div class="anatomy__3d-label" style="opacity: 1; right: -80px;">
+                                                <span class="anatomy__3d-name">АСФАЛЬТ</span>
+                                                <span class="anatomy__3d-thick" id="calc-asphalt-label">5 см</span>
+                                            </div>
+                                        </div>
+                                        <!-- ПГС -->
+                                        <div class="anatomy__3d-layer anatomy__3d-layer--sand" id="calc-layer-pgs" style="position: absolute; left: 0; right: 0; top: 30px; height: 30px; z-index: 3; opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; transform-style: preserve-3d;">
+                                            <div class="anatomy__3d-top"></div>
+                                            <div class="anatomy__3d-front"></div>
+                                            <div class="anatomy__3d-side" style="width: 40px;"></div>
+                                            <div class="anatomy__3d-label" style="opacity: 0.8; right: -80px;">
+                                                <span class="anatomy__3d-name">ПГС</span>
+                                                <span class="anatomy__3d-thick" id="calc-pgs-label">5 см</span>
+                                            </div>
+                                        </div>
+                                        <!-- Щебень -->
+                                        <div class="anatomy__3d-layer anatomy__3d-layer--gravel" id="calc-layer-gravel" style="position: absolute; left: 0; right: 0; top: 60px; height: 60px; z-index: 2; opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; transform-style: preserve-3d;">
+                                            <div class="anatomy__3d-top"></div>
+                                            <div class="anatomy__3d-front"></div>
+                                            <div class="anatomy__3d-side" style="width: 40px;"></div>
+                                            <div class="anatomy__3d-label" style="opacity: 0.8; right: -80px;">
+                                                <span class="anatomy__3d-name">ЩЕБЕНЬ</span>
+                                                <span class="anatomy__3d-thick" id="calc-gravel-label">10 см</span>
+                                            </div>
+                                        </div>
+                                        <!-- Грунт -->
+                                        <div class="anatomy__3d-layer anatomy__3d-layer--soil" id="calc-layer-soil" style="position: absolute; left: 0; right: 0; top: 120px; height: 35px; z-index: 1; opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; transform-style: preserve-3d;">
+                                            <div class="anatomy__3d-top"></div>
+                                            <div class="anatomy__3d-front"></div>
+                                            <div class="anatomy__3d-side" style="width: 40px;"></div>
+                                            <div class="anatomy__3d-label" style="opacity: 0.8; right: -80px;">
+                                                <span class="anatomy__3d-name">ГРУНТ</span>
+                                                <span class="anatomy__3d-thick">основа</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="road-calc__depth-info">
+                                    <span class="road-calc__depth-value" id="calc-total-depth">30 см</span>
+                                    <span class="road-calc__depth-label">общая глубина</span>
+                                </div>
                             </div>
-                            <input type="range" min="3" max="8" value="5" class="calculator__slider" id="asphalt-slider">
-                            <span class="calculator__layer-value" id="asphalt-value">5 см</span>
-                        </div>
-                        
-                        <div class="calculator__layer">
-                            <div class="calculator__layer-header">
-                                <span class="calculator__layer-name">ПГС (песчано-гравийная смесь)</span>
-                                <span class="calculator__layer-price">200 ₸/см</span>
+
+                            <!-- Слайдеры -->
+                            <div class="road-calc__controls">
+                                <div class="road-calc__slider-group">
+                                    <div class="road-calc__slider-header">
+                                        <span>Асфальт (финишное покрытие)</span>
+                                        <span class="road-calc__slider-price">1 000 ₸/см</span>
+                                    </div>
+                                    <div class="road-calc__slider-row">
+                                        <input type="range" min="3" max="8" value="5" class="road-calc__slider" id="asphalt-slider">
+                                        <span class="road-calc__slider-value" id="asphalt-value">5 см</span>
+                                    </div>
+                                </div>
+
+                                <div class="road-calc__slider-group">
+                                    <div class="road-calc__slider-header">
+                                        <span>ПГС (песчано-гравийная смесь)</span>
+                                        <span class="road-calc__slider-price">200 ₸/см</span>
+                                    </div>
+                                    <div class="road-calc__slider-row">
+                                        <input type="range" min="3" max="10" value="5" class="road-calc__slider" id="pgs-slider">
+                                        <span class="road-calc__slider-value" id="pgs-value">5 см</span>
+                                    </div>
+                                </div>
+
+                                <div class="road-calc__slider-group">
+                                    <div class="road-calc__slider-header">
+                                        <span class="anatomy__3d-thick" id="calc-soil-label">10 см</span>
+                                        <span class="road-calc__slider-price">150 ₸/см</span>
+                                    </div>
+                                    <div class="road-calc__slider-row">
+                                        <input type="range" min="5" max="20" value="10" class="road-calc__slider" id="gravel-slider">
+                                        <span class="road-calc__slider-value" id="gravel-value">10 см</span>
+                                    </div>
+                                </div>
+
+                                <div class="road-calc__slider-group">
+                                    <div class="road-calc__slider-header">
+                                        <span>Грунт (подготовка основания)</span>
+                                        <span class="road-calc__slider-price">100 ₸/см</span>
+                                    </div>
+                                    <div class="road-calc__slider-row">
+                                        <input type="range" min="5" max="30" value="10" class="road-calc__slider" id="soil-slider">
+                                        <span class="road-calc__slider-value" id="soil-value">10 см</span>
+                                    </div>
+                                </div>
                             </div>
-                            <input type="range" min="3" max="10" value="5" class="calculator__slider" id="pgs-slider">
-                            <span class="calculator__layer-value" id="pgs-value">5 см</span>
                         </div>
-                        
-                        <div class="calculator__layer">
-                            <div class="calculator__layer-header">
-                                <span class="calculator__layer-name">Щебень (основание)</span>
-                                <span class="calculator__layer-price">150 ₸/см</span>
+
+                        <!-- Результат -->
+                        <div class="road-calc__result">
+                            <div class="road-calc__result-left">
+                                <span class="road-calc__result-label">Итого за м²:</span>
+                                <span class="road-calc__result-price" id="road-total">8 500 ₸</span>
                             </div>
-                            <input type="range" min="5" max="20" value="10" class="calculator__slider" id="gravel-slider">
-                            <span class="calculator__layer-value" id="gravel-value">10 см</span>
+                            <div class="road-calc__result-right">
+                                <div class="road-calc__result-details" id="road-details">
+                                    Асфальт: 5 000 ₸ · ПГС: 1 000 ₸ · Щебень: 1 500 ₸ · Грунт: 1 000 ₸
+                                </div>
+                            </div>
+                            <a href="#contact" class="btn btn--primary road-calc__result-btn">
+                                Получить точный расчёт
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
                         </div>
-                    </div>
-                    
-                    <div class="calculator__result">
-                        <div class="calculator__total">
-                            <span>Итого за м²:</span>
-                            <span class="calculator__total-price" id="road-total">8 500 ₸</span>
-                        </div>
-                        <div class="calculator__details" id="road-details">
-                            Асфальт: 5 × 1 000 = 5 000 ₸ · ПГС: 5 × 200 = 1 000 ₸ · Щебень: 10 × 150 = 1 500 ₸ · Грунт: 1 000 ₸
-                        </div>
-                        <a href="#contact" class="btn btn--primary">Получить точный расчёт</a>
                     </div>
                 </div>
-                
-                <!-- Калькулятор плитки -->
-                <div class="calculator__panel" id="panel-tile">
-                    <h3 class="calculator__panel-title">Калькулятор тротуарной плитки</h3>
-                    
-                    <div class="calculator__layers">
-                        <div class="calculator__layer">
-                            <div class="calculator__layer-header">
-                                <span class="calculator__layer-name">Тип плитки</span>
-                            </div>
-                            <div class="calculator__options">
-                                <button class="calculator__option active" data-tile="bruschatka" data-price="6000">Брусчатка</button>
-                                <button class="calculator__option" data-tile="vibropress" data-price="4500">Вибропрессованная</button>
-                                <button class="calculator__option" data-tile="granit" data-price="12000">Гранитная</button>
-                            </div>
-                        </div>
-                        
-                        <div class="calculator__layer">
-                            <div class="calculator__layer-header">
-                                <span class="calculator__layer-name">Площадь (м²)</span>
-                            </div>
-                            <input type="range" min="10" max="500" value="50" class="calculator__slider" id="tile-area-slider">
-                            <span class="calculator__layer-value" id="tile-area-value">50 м²</span>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== БЛОК: ДО/ПОСЛЕ ==================== -->
+    <section class="before-after section" id="projects">
+        <div class="container">
+            <div class="section__header" data-animate="fade-up">
+                <h2 class="section__title">Визуализация — первый шаг к реализации</h2>
+                <p class="section__subtitle">Будущий результат раскрывается заранее — вы принимаете решения, опираясь на точное представление проекта</p>
+            </div>
+
+            <!-- Табы проектов -->
+            <div class="ba__tabs" data-animate="fade-up" data-delay="100">
+                <button class="ba__tab active" data-project="1">Асфальтирование двора</button>
+                <button class="ba__tab" data-project="2">Тротуарная плитка</button>
+                <button class="ba__tab" data-project="3">Ландшафтный дизайн</button>
+                <button class="ba__tab" data-project="4">Подъезд к коттеджу</button>
+                <button class="ba__tab" data-project="5">Бизнес-центр</button>
+            </div>
+
+            <!-- Слайдер ДО/ПОСЛЕ -->
+            <!-- Слайдер ДО/ПОСЛЕ -->
+            <div class="ba__compare-wrapper" data-animate="fade-up" data-delay="200">
+                <div class="ba__compare" id="ba-compare">
+                    <!-- НИЖНЕЕ фото — ДО (старое) — видно всегда -->
+                    <div class="ba__image ba__image--bottom">
+                        <img src="./imgs/ba/6.png" alt="До" id="ba-before-img" />
+                    </div>
+                    <!-- ВЕРХНЕЕ фото — ПОСЛЕ (новое) — закрывает нижнее -->
+                    <div class="ba__image ba__image--top" id="ba-after-side">
+                        <img src="./imgs/ba/7.png" alt="После" id="ba-after-img" />
+                    </div>
+                    <!-- Разделитель -->
+                    <div class="ba__divider" id="ba-divider">
+                        <div class="ba__divider-line"></div>
+                        <div class="ba__divider-handle">
+                            <svg class="ba__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 5l-7 7 7 7"/></svg>
+                            <svg class="ba__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
-                    
-                    <div class="calculator__result">
-                        <div class="calculator__total">
-                            <span>Итого:</span>
-                            <span class="calculator__total-price" id="tile-total">450 000 - 700 000 ₸</span>
-                        </div>
-                        <div class="calculator__details" id="tile-details">
-                            Материал: 300 000 ₸ · Работа: 150 000 - 400 000 ₸
-                        </div>
-                        <a href="#contact" class="btn btn--primary">Получить точный расчёт</a>
-                    </div>
+                    <!-- Метки -->
+                    <span class="ba__label ba__label--before">ДО</span>
+                    <span class="ba__label ba__label--after">ПОСЛЕ</span>
                 </div>
-                
-                <!-- Калькулятор ландшафта -->
-                <div class="calculator__panel" id="panel-landscape">
-                    <h3 class="calculator__panel-title">Калькулятор ландшафтного дизайна</h3>
-                    
-                    <div class="calculator__layers">
-                        <div class="calculator__checkboxes">
-                            <label class="calculator__checkbox">
-                                <input type="checkbox" data-service="gazon" data-price="3500"> Газон (3 500 ₸/м²)
-                            </label>
-                            <label class="calculator__checkbox">
-                                <input type="checkbox" data-service="posadki" data-price="8000"> Посадки (8 000 ₸/м²)
-                            </label>
-                            <label class="calculator__checkbox">
-                                <input type="checkbox" data-service="poliv" data-price="2500"> Автополив (2 500 ₸/м²)
-                            </label>
-                            <label class="calculator__checkbox">
-                                <input type="checkbox" data-service="osveshenie" data-price="5000"> Освещение (5 000 ₸/м²)
-                            </label>
-                        </div>
-                        
-                        <div class="calculator__layer">
-                            <div class="calculator__layer-header">
-                                <span class="calculator__layer-name">Площадь (м²)</span>
-                            </div>
-                            <input type="range" min="10" max="1000" value="100" class="calculator__slider" id="landscape-area-slider">
-                            <span class="calculator__layer-value" id="landscape-area-value">100 м²</span>
-                        </div>
+            </div>
+
+            <!-- Инфо -->
+            <div class="ba__info" data-animate="fade-up" data-delay="300">
+                <div class="ba__info-grid">
+                    <div class="ba__info-item">
+                        <span class="ba__info-value" id="ba-area">450 м²</span>
+                        <span class="ba__info-label">Площадь</span>
                     </div>
-                    
-                    <div class="calculator__result">
-                        <div class="calculator__total">
-                            <span>Итого:</span>
-                            <span class="calculator__total-price" id="landscape-total">0 ₸</span>
-                        </div>
-                        <div class="calculator__details">Выберите услуги для расчёта</div>
-                        <a href="#contact" class="btn btn--primary">Получить точный расчёт</a>
+                    <div class="ba__info-item">
+                        <span class="ba__info-value" id="ba-days">5 дней</span>
+                        <span class="ba__info-label">Срок</span>
+                    </div>
+                    <div class="ba__info-item">
+                        <span class="ba__info-value" id="ba-year">2025</span>
+                        <span class="ba__info-label">Год</span>
+                    </div>
+                    <div class="ba__info-item">
+                        <span class="ba__info-value">✓</span>
+                        <span class="ba__info-label">Гарантия 5 лет</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    
-    <!-- ==================== БЛОК 4: ПРОЕКТЫ (До/После) ==================== -->
-    <section class="projects section" id="projects">
+
+
+    <!-- ==================== БЛОК: НАШИ ПРОЕКТЫ ==================== -->
+    <section class="myprojects section" id="myprojects">
         <div class="container">
             <div class="section__header" data-animate="fade-up">
                 <h2 class="section__title">Реализованные проекты</h2>
                 <p class="section__subtitle">Более 500 проектов по всему Казахстану — от частных дворов до промышленных объектов</p>
             </div>
-            
-            <div class="projects__grid" data-animate="fade-up" data-delay="200">
-                <div class="project-card">
+
+            <!-- Счётчик -->
+            <div class="myprojects__counter" data-animate="fade-up" data-delay="100">
+                <span class="myprojects__counter-number">500+</span>
+                <span class="myprojects__counter-label">проектов выполнено</span>
+            </div>
+
+            <!-- Фильтры -->
+            <div class="myprojects__filters" data-animate="fade-up" data-delay="150">
+                <button class="myprojects__filter active" data-filter="all">Все</button>
+                <button class="myprojects__filter" data-filter="road">Дороги</button>
+                <button class="myprojects__filter" data-filter="tile">Плитка</button>
+                <button class="myprojects__filter" data-filter="landscape">Ландшафт</button>
+                <button class="myprojects__filter" data-filter="sport">Спорт</button>
+            </div>
+
+            <!-- Сетка -->
+            <div class="myprojects__grid" data-animate="fade-up" data-delay="200">
+                <div class="project-card" data-category="road">
                     <div class="project-card__image">
-                        <div class="project-card__badge">2024</div>
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" alt="Проект 1" />
+                        <img src="./imgs/s4.jpg" alt="Трасса" loading="lazy" />
+                        <div class="project-card__overlay">
+                            <span class="project-card__category">ДОРОГИ</span>
+                        </div>
                     </div>
                     <div class="project-card__content">
-                        <h3 class="project-card__title">Асфальтирование двора</h3>
-                        <p class="project-card__info">450 м² · 5 дней</p>
-                        <p class="project-card__desc">Полный цикл: от выемки грунта до финишного покрытия. Гарантия 3 года.</p>
+                        <h3 class="project-card__title">Ночное строительство трассы</h3>
+                        <div class="project-card__tags">
+                            <span>5 000+ м²</span>
+                            <span>Магистраль</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="project-card">
+
+                <div class="project-card" data-category="landscape">
                     <div class="project-card__image">
-                        <div class="project-card__badge">2024</div>
-                        <img src="https://images.unsplash.com/photo-1545147985-2b8c9e2e0ff1?w=600&h=400&fit=crop" alt="Проект 2" />
+                        <img src="./imgs/ba/8.png" alt="Парк" loading="lazy" />
+                        <div class="project-card__overlay">
+                            <span class="project-card__category">ЛАНДШАФТ</span>
+                        </div>
                     </div>
                     <div class="project-card__content">
-                        <h3 class="project-card__title">Парковка на 50 машиномест</h3>
-                        <p class="project-card__info">1 200 м² · 10 дней</p>
-                        <p class="project-card__desc">Усиленное основание под грузовой транспорт. Дренажная система.</p>
+                        <h3 class="project-card__title">Бизнес центр</h3>
+                        <div class="project-card__tags">
+                            <span>1 200 м²</span>
+                            <span>Полный цикл</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="project-card">
-                    <div class="project-card__image">
-                        <div class="project-card__badge">2024</div>
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop" alt="Проект 3" />
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">Ландшафт и благоустройство</h3>
-                        <p class="project-card__info">800 м² · 14 дней</p>
-                        <p class="project-card__desc">Мощение, газон, автополив, освещение — всё под ключ.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-card__image">
-                        <div class="project-card__badge">2024</div>
-                        <img src="https://images.unsplash.com/photo-1590856029826-c7a73142e1ae?w=600&h=400&fit=crop" alt="Проект 4" />
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">Детская площадка</h3>
-                        <p class="project-card__info">350 м² · 7 дней</p>
-                        <p class="project-card__desc">Травмобезопасное покрытие, игровые зоны, ограждение.</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
-    
-    
+
     <!-- ==================== БЛОК 5: ОТЗЫВЫ ==================== -->
     <section class="reviews section" id="reviews">
         <div class="container">
@@ -429,7 +837,7 @@
                 <h2 class="section__title">Нам доверяют</h2>
                 <p class="section__subtitle">Более 200 клиентов оценили качество наших работ</p>
             </div>
-            
+
             <div class="reviews__slider" data-animate="fade-up" data-delay="200">
                 <div class="reviews__track" id="reviews-track">
                     <div class="review-card">
@@ -443,7 +851,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="review-card">
                         <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
                         <p class="review-card__text">Делали парковку на 50 машиномест. Уложились в сроки и бюджет. Профессиональный подход.</p>
@@ -455,7 +863,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="review-card">
                         <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
                         <p class="review-card__text">Ландшафтный дизайн превзошёл ожидания. Газон, дорожки, освещение — всё идеально.</p>
@@ -467,7 +875,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="review-card">
                         <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
                         <p class="review-card__text">Выложили плиткой весь участок — 120 м². Узор ровный, дренаж работает. Через год ничего не просело.</p>
@@ -480,7 +888,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="reviews__controls">
                     <button class="reviews__btn reviews__btn--prev" id="review-prev">←</button>
                     <button class="reviews__btn reviews__btn--next" id="review-next">→</button>
@@ -488,24 +896,24 @@
             </div>
         </div>
     </section>
-    
-    
+
+
     <!-- ==================== БЛОК 6: КОНТАКТЫ / ФУТЕР ==================== -->
     <section class="contact section" id="contact">
         <div class="container">
             <div class="contact__grid">
-                <div class="contact__info" data-animate="fade-up">
+                <div class="contact__info" data-animate="fade-up" style="max-width: 500px; margin: 0 auto; text-align: center;">
                     <h2 class="section__title">Начнём проект?</h2>
                     <p class="section__subtitle">Бесплатный выезд инженера за 24 часа. Составим смету без обязательств.</p>
-                    
-                    <div class="contact__items">
-                        <div class="contact__item">
+
+                    <div class="contact__items" style="justify-content: center;">
+                        <div class="contact__item" style="justify-content: center;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
                             </svg>
-                            <a href="tel:+77006000401">+7 700 600 04 01</a>
+                            <a href="tel:+77079400090">+7 707 940 0090</a>
                         </div>
-                        <div class="contact__item">
+                        <div class="contact__item" style="justify-content: center;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M12 6v6l4 2"/>
@@ -513,52 +921,55 @@
                             <span>Пн–Сб: 08:00–18:00</span>
                         </div>
                     </div>
-                    
-                    <a href="https://wa.me/77006000401" class="btn btn--whatsapp" target="_blank">
+
+                    <a href="https://api.whatsapp.com/send/?phone=77079400090&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5&type=phone_number&app_absent=0" class="btn btn--whatsapp" target="_blank" style="max-width: 320px; margin: 0 auto;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                         </svg>
                         Написать в WhatsApp
                     </a>
                 </div>
-                
-                <form class="contact__form" data-animate="fade-up" data-delay="200">
-                    <h3 class="contact__form-title">Оставьте заявку</h3>
-                    <input type="text" placeholder="Ваше имя" class="contact__input" required />
-                    <input type="tel" placeholder="Номер телефона" class="contact__input" required />
-                    <textarea placeholder="Опишите задачу (площадь, объект, пожелания)" class="contact__input contact__textarea" rows="4"></textarea>
-                    <button type="submit" class="btn btn--primary contact__submit">Отправить заявку</button>
-                    <p class="contact__note">Ответ за 15 минут · Бесплатный выезд · Без обязательств</p>
-                </form>
             </div>
         </div>
     </section>
-    
-    
+
+
     <!-- ==================== ФУТЕР ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__copyright">
-                    <span class="logo__text">Ds<span class="logo__accent">Corp</span></span>
-                    <p>© 2024 ТОО DsCorp. Все права защищены.</p>
+                    <span class="logo__text">Asphalt<span class="logo__accent">Pro</span></span>
+                    <p>© 2025 ТОО AsphaltPro. Все права защищены.</p>
                 </div>
-                <div class="footer__links">
+
+                <nav class="footer__links">
                     <a href="#hero">Главная</a>
+                    <a href="#fortress">Технология</a>
                     <a href="#services">Услуги</a>
-                    <a href="#projects">Проекты</a>
-                    <a href="#contact">Контакты</a>
-                </div>
+                    <a href="#calculator">Калькулятор</a>
+                    <a href="#projects">Визуализация</a>
+                    <a href="#myprojects">Проекты</a>
+                </nav>
+
                 <div class="footer__cert">
-                    <span>ISO 9001</span>
-                    <span>СТ РК</span>
-                    <span>ГОСТ</span>
+                    <a href="mailto:zhanybekovyerbol@gmail.com">zhanybekovyerbol@gmail.com</a>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <!-- Подключаем JS -->
-    <script src="script.js"></script>
+    <!-- Кнопка WhatsApp -->
+    <a href="https://api.whatsapp.com/send/?phone=77079400090&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5&type=phone_number&app_absent=0"
+       class="whatsapp-btn"
+       target="_blank"
+       rel="noopener"
+       aria-label="Написать в WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+    <script src="./js/script.js"></script>
 </body>
 </html>

@@ -13,6 +13,7 @@
     --radius-sm: 10px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --container: 1200px;
+    --progress-height: 0%;
 }
 
 /* ==================== СБРОС ==================== */
@@ -243,99 +244,164 @@ a {
 }
 
 /* ==================== HERO ==================== */
+/* ==================== HERO ==================== */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
-    padding-top: 80px;
+    padding: 80px 16px 60px;
 }
 
-.hero__parallax {
+/* --- Фон с параллаксом --- */
+.hero__bg {
     position: absolute;
-    top: -20%;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero__bg-image {
+    position: absolute;
+    top: -5%;
     left: 0;
     width: 100%;
-    height: 140%;
-    background: url('https://images.unsplash.com/photo-1590856029826-c7a73142e1ae?w=1920&q=80') center/cover no-repeat;
+    height: 120%;
     will-change: transform;
 }
 
-.hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.95) 100%);
+.hero__bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
 }
 
+/* Оверлей поверх картинки */
+.hero__bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            180deg,
+            rgba(10, 10, 10, 0.5) 0%,
+            rgba(10, 10, 10, 0.7) 50%,
+            rgba(10, 10, 10, 0.9) 100%
+    );
+}
+
+/* Дополнительный градиент для плавного перехода */
+.hero__gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+    z-index: 1;
+}
+
+/* --- Контент --- */
 .hero__content {
     position: relative;
     z-index: 10;
     text-align: center;
-    padding: 40px 0;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* Бегущая строка */
 .hero__marquee-wrap {
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+    opacity: 0.7;
+    width: 100%;
 }
 
 .hero__marquee {
     display: flex;
-    gap: 24px;
+    gap: 8px;
     animation: marquee 30s linear infinite;
     white-space: nowrap;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    color: var(--text-secondary);
-    opacity: 0.6;
+    will-change: transform;
+}
+
+.hero__marquee-item {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text);
+    text-transform: uppercase;
 }
 
 .hero__marquee-dot {
+    font-size: 11px;
     color: var(--accent);
+    font-weight: 700;
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Заголовок */
 .hero__title {
-    font-size: clamp(40px, 8vw, 80px);
+    font-size: 72px;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 0.95;
     letter-spacing: -0.03em;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitle {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--text-secondary);
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* УТП-блок */
 .hero__utp {
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px 32px;
-    max-width: 550px;
-    margin: 0 auto 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(20, 20, 20, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 24px;
+    max-width: 580px;
+    margin: 0 auto 28px;
+    text-align: left;
+}
+
+.hero__utp-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.hero__utp-content {
+    flex: 1;
 }
 
 .hero__utp-title {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--accent);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .hero__utp-text {
-    font-size: 15px;
+    font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.5;
 }
@@ -344,55 +410,342 @@ a {
     color: var(--text);
 }
 
-.hero__btn {
-    margin-bottom: 50px;
+/* Кнопки */
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.btn--lg {
+    padding: 16px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.btn--outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text);
+}
+
+.btn--outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    transform: translateY(-2px);
 }
 
 /* Статистика */
 .hero__stats {
     display: flex;
     justify-content: center;
-    gap: 48px;
+    align-items: center;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .hero__stat {
     text-align: center;
+    min-width: 80px;
 }
 
 .hero__stat-number {
     display: block;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 900;
     color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.hero__stat-plus {
+    font-size: 20px;
 }
 
 .hero__stat-label {
-    font-size: 13px;
+    font-size: 11px;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+}
+
+.hero__stat-divider {
+    width: 1px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.hero__stat-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.hero__stat-stars {
+    font-size: 13px;
+    color: #fbbf24;
+    letter-spacing: 1px;
 }
 
 /* Скролл-индикатор */
-.hero__scroll-indicator {
+.hero__scroll {
     position: absolute;
-    bottom: 40px;
+    bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
+    gap: 6px;
+}
+
+.hero__scroll-text {
+    font-size: 10px;
     color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.hero__scroll-icon {
     animation: bounce 2s infinite;
+    color: var(--text-secondary);
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+/* ==================== АДАПТИВНОСТЬ HERO ==================== */
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .hero__title {
+        font-size: 56px;
+    }
+
+    .hero__subtitle {
+        font-size: 16px;
+    }
+}
+
+/* Большие телефоны (до 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 16px 50px;
+    }
+
+    .hero__title {
+        font-size: 44px;
+    }
+
+    .hero__subtitle {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    .hero__utp {
+        padding: 16px 20px;
+    }
+
+    .hero__utp-title {
+        font-size: 15px;
+    }
+
+    .hero__utp-text {
+        font-size: 12px;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 32px;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero__stats {
+        gap: 12px;
+    }
+
+    .hero__stat-number {
+        font-size: 28px;
+    }
+
+    .hero__stat-plus {
+        font-size: 18px;
+    }
+
+    .hero__stat-label {
+        font-size: 10px;
+    }
+
+    .hero__stat-divider {
+        height: 28px;
+    }
+}
+
+/* Средние телефоны (до 576px) */
+@media (max-width: 576px) {
+    .hero {
+        padding: 70px 12px 40px;
+        min-height: 100vh;
+    }
+
+    .hero__marquee-item {
+        font-size: 10px;
+    }
+
+    .hero__marquee-dot {
+        font-size: 10px;
+    }
+
+    .hero__title {
+        font-size: 36px;
+    }
+
+    .hero__subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .hero__utp {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 16px;
+        gap: 8px;
+    }
+
+    .hero__utp-icon {
+        font-size: 22px;
+    }
+
+    .hero__utp-title {
+        font-size: 14px;
+    }
+
+    .hero__utp-br {
+        display: none;
+    }
+
+    .hero__actions .btn {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    .hero__stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 8px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero__stat-divider {
+        display: none;
+    }
+
+    .hero__stat-number {
+        font-size: 26px;
+    }
+
+    .hero__stat-label {
+        font-size: 10px;
+    }
+
+    .hero__scroll {
+        bottom: 10px;
+    }
+
+    .hero__scroll-text {
+        font-size: 9px;
+    }
+}
+
+/* Маленькие телефоны (до 400px) */
+@media (max-width: 400px) {
+    .hero {
+        padding: 65px 10px 30px;
+    }
+
+    .hero__title {
+        font-size: 30px;
+    }
+
+    .hero__subtitle {
+        font-size: 13px;
+    }
+
+    .hero__utp {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .hero__utp-title {
+        font-size: 13px;
+    }
+
+    .hero__utp-text {
+        font-size: 11px;
+    }
+
+    .hero__actions .btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .hero__stat-number {
+        font-size: 22px;
+    }
+
+    .hero__stat-label {
+        font-size: 9px;
+    }
+}
+
+/* Очень маленькие телефоны (до 340px) */
+@media (max-width: 340px) {
+    .hero__title {
+        font-size: 26px;
+    }
+
+    .hero__subtitle {
+        font-size: 12px;
+    }
+
+    .hero__stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 4px;
+    }
+
+    .hero__stat-number {
+        font-size: 20px;
+    }
+}
+
+/* Фикс для iOS Safari (backdrop-filter) */
+@supports not (backdrop-filter: blur(20px)) {
+    .hero__utp {
+        background: rgba(20, 20, 20, 0.92);
+    }
 }
 
 /* ==================== FORTRESS ==================== */
@@ -452,196 +805,906 @@ a {
     font-weight: 600;
 }
 
-/* ==================== CALCULATOR ==================== */
-.calculator__widget {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
+/* ==================== ANATOMY 3D (БЛОК 2) ==================== */
+.anatomy__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
 }
 
-.calculator__tabs {
+/* --- 3D Сцена --- */
+.anatomy__3d-scene {
+    perspective: 1200px;
+    perspective-origin: 50% 40%;
     display: flex;
-    border-bottom: 1px solid var(--border);
+    justify-content: center;
+    padding: 30px 0;
 }
 
-.calculator__tab {
-    flex: 1;
-    padding: 16px;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 15px;
-    font-weight: 600;
+.anatomy__3d-road {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    height: 360px;
+    transform: rotateX(40deg) rotateY(-15deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- 3D Слой --- */
+.anatomy__3d-layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform-style: preserve-3d;
     cursor: pointer;
-    transition: all var(--transition);
-    font-family: inherit;
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+    transition: all 0.5s ease;
 }
 
-.calculator__tab:hover {
-    color: var(--text);
+/* Активный и уже построенные слои видны */
+.anatomy__3d-layer.built,
+.anatomy__3d-layer.active {
+    z-index: 20 !important;
+    filter: brightness(1.35) saturate(1.25);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+}
+.anatomy__3d-layer.built {
+    pointer-events: auto !important;
 }
 
-.calculator__tab.active {
-    color: var(--accent);
-    box-shadow: inset 0 -2px 0 var(--accent);
+.anatomy__3d-layer.building {
+    animation: layerDropIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.calculator__panel {
-    display: none;
-    padding: 32px;
+@keyframes layerDropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.85);
+        visibility: visible;
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(8px) scale(1.03);
+    }
+    70% {
+        transform: translateY(-3px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        visibility: visible;
+    }
 }
 
-.calculator__panel.active {
-    display: block;
+@keyframes layerBuild {
+    0% {
+        transform: translateY(80px) scale(0.95);
+        opacity: 0;
+    }
+    30% {
+        transform: translateY(-10px) scale(1.02);
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(3px) scale(1);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
 }
 
-.calculator__panel-title {
-    font-size: 24px;
+.anatomy__3d-layer.active .anatomy__3d-front {
+    box-shadow:
+            inset 0 0 0 3px var(--accent),
+            0 0 30px rgba(249, 115, 22, 0.5),
+            0 0 60px rgba(249, 115, 22, 0.25);
+}
+
+.anatomy__3d-layer.active .anatomy__3d-top {
+    box-shadow: inset 0 0 0 3px var(--accent);
+}
+
+/* Уже построенные слои (неактивные, но видимые) */
+.anatomy__3d-layer.built:not(.active) {
+    opacity: 0.75;
+    filter: brightness(0.8);
+    transition: all 0.5s ease;
+}
+
+/* Верхняя грань */
+.anatomy__3d-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    transform: rotateX(90deg);
+    transform-origin: top center;
+}
+
+/* Передняя грань */
+.anatomy__3d-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: box-shadow 0.5s ease;
+}
+
+/* Боковая грань */
+.anatomy__3d-side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    transform: rotateY(90deg);
+    transform-origin: right center;
+}
+
+/* ===== ЦВЕТА И ТЕКСТУРЫ СЛОЁВ ===== */
+
+/* === Грунт (нижний) === */
+.anatomy__3d-layer--soil {
+    top: 250px;
+    height: 80px;
+    z-index: 1;
+}
+
+.anatomy__3d-layer--soil .anatomy__3d-front {
+    background:
+            radial-gradient(ellipse at 15% 30%, #7a5440 12px, transparent 12px),
+            radial-gradient(ellipse at 45% 55%, #5c3d2a 8px, transparent 8px),
+            radial-gradient(ellipse at 70% 35%, #6b4a35 10px, transparent 10px),
+            radial-gradient(ellipse at 30% 70%, #7a5440 9px, transparent 9px),
+            radial-gradient(ellipse at 60% 65%, #4d3525 11px, transparent 11px),
+            radial-gradient(ellipse at 85% 50%, #6b4a35 7px, transparent 7px),
+            linear-gradient(180deg, #6b4a35 0%, #3d2818 100%);
+    border-radius: 0 0 3px 3px;
+}
+
+.anatomy__3d-layer--soil .anatomy__3d-top {
+    background: #5c3d2a;
+    background-image:
+            radial-gradient(ellipse at 20% 30%, #7a5440 12px, transparent 12px),
+            radial-gradient(ellipse at 55% 55%, #5c3d2a 10px, transparent 10px),
+            radial-gradient(ellipse at 75% 40%, #6b4a35 14px, transparent 14px);
+    background-size: 80px 80px, 70px 70px, 90px 90px;
+}
+
+.anatomy__3d-layer--soil .anatomy__3d-side {
+    background: linear-gradient(180deg, #3d2818 0%, #2a1a10 100%);
+    border-radius: 0 0 3px 0;
+}
+
+/* === Песок === */
+.anatomy__3d-layer--sand {
+    top: 155px;
+    height: 95px;
+    z-index: 2;
+}
+
+.anatomy__3d-layer--sand .anatomy__3d-front {
+    background:
+            radial-gradient(circle at 12% 18%, #d4b858 3px, transparent 3px),
+            radial-gradient(circle at 28% 42%, #c4a040 4px, transparent 4px),
+            radial-gradient(circle at 48% 22%, #d4b050 3px, transparent 3px),
+            radial-gradient(circle at 65% 48%, #b89030 4px, transparent 4px),
+            radial-gradient(circle at 22% 62%, #c8a848 3px, transparent 3px),
+            radial-gradient(circle at 42% 78%, #d4b858 4px, transparent 4px),
+            radial-gradient(circle at 58% 68%, #b89030 3px, transparent 3px),
+            radial-gradient(circle at 78% 28%, #c4a040 4px, transparent 4px),
+            radial-gradient(circle at 18% 85%, #d4b050 3px, transparent 3px),
+            radial-gradient(circle at 52% 55%, #c8a848 4px, transparent 4px),
+            radial-gradient(circle at 70% 70%, #d4b858 3px, transparent 3px),
+            radial-gradient(circle at 35% 35%, #b89030 4px, transparent 4px),
+            linear-gradient(180deg, #d4b858 0%, #a88830 100%);
+}
+
+.anatomy__3d-layer--sand .anatomy__3d-top {
+    background: #c4a040;
+    background-image:
+            radial-gradient(circle at 25% 30%, #d4b050 5px, transparent 5px),
+            radial-gradient(circle at 55% 50%, #c8a848 4px, transparent 4px),
+            radial-gradient(circle at 75% 65%, #d4b858 6px, transparent 6px),
+            radial-gradient(circle at 40% 70%, #b89030 4px, transparent 4px);
+    background-size: 70px 70px, 60px 60px, 80px 80px, 65px 65px;
+}
+
+.anatomy__3d-layer--sand .anatomy__3d-side {
+    background: linear-gradient(180deg, #a88830 0%, #8a6a20 100%);
+}
+
+/* === Щебень === */
+.anatomy__3d-layer--gravel {
+    top: 60px;
+    height: 95px;
+    z-index: 3;
+}
+
+.anatomy__3d-layer--gravel .anatomy__3d-front {
+    background:
+            radial-gradient(circle at 15% 20%, #7a6350 6px, transparent 6px),
+            radial-gradient(circle at 35% 45%, #8a7060 8px, transparent 8px),
+            radial-gradient(circle at 55% 28%, #6b5640 5px, transparent 5px),
+            radial-gradient(circle at 75% 52%, #7d6550 7px, transparent 7px),
+            radial-gradient(circle at 25% 62%, #5e4838 6px, transparent 6px),
+            radial-gradient(circle at 48% 72%, #8a7060 5px, transparent 5px),
+            radial-gradient(circle at 68% 38%, #6b5640 8px, transparent 8px),
+            radial-gradient(circle at 82% 58%, #7a6350 6px, transparent 6px),
+            radial-gradient(circle at 12% 80%, #5e4838 7px, transparent 7px),
+            radial-gradient(circle at 55% 15%, #7d6550 5px, transparent 5px),
+            radial-gradient(circle at 72% 75%, #8a7060 9px, transparent 9px),
+            radial-gradient(circle at 38% 55%, #6b5640 6px, transparent 6px),
+            linear-gradient(180deg, #6b5540 0%, #4a3828 100%);
+}
+
+.anatomy__3d-layer--gravel .anatomy__3d-top {
+    background: #6b5540;
+    background-image:
+            radial-gradient(circle at 15% 20%, #8a7060 8px, transparent 8px),
+            radial-gradient(circle at 45% 50%, #7a6350 10px, transparent 10px),
+            radial-gradient(circle at 75% 35%, #6b5640 7px, transparent 7px),
+            radial-gradient(circle at 30% 70%, #7d6550 9px, transparent 9px),
+            radial-gradient(circle at 60% 75%, #5e4838 11px, transparent 11px);
+    background-size: 90px 90px, 110px 110px, 80px 80px, 100px 100px, 95px 95px;
+}
+
+.anatomy__3d-layer--gravel .anatomy__3d-side {
+    background: linear-gradient(180deg, #4a3828 0%, #352820 100%);
+}
+
+/* === Асфальт (верхний) === */
+.anatomy__3d-layer--asphalt {
+    top: 0;
+    height: 60px;
+    z-index: 4;
+}
+
+.anatomy__3d-layer--asphalt .anatomy__3d-front {
+    background:
+            repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(0,0,0,0.08) 20px,
+                    rgba(0,0,0,0.08) 21px
+            ),
+            linear-gradient(180deg, #4a4a4a 0%, #3a3a3a 30%, #2a2a2a 100%);
+    border-radius: 3px 3px 0 0;
+}
+
+.anatomy__3d-layer--asphalt .anatomy__3d-top {
+    background: #3d3d3d;
+    background-image:
+            radial-gradient(circle at 20% 30%, #555 2px, transparent 2px),
+            radial-gradient(circle at 55% 50%, #484848 2.5px, transparent 2.5px),
+            radial-gradient(circle at 80% 65%, #505050 2px, transparent 2px),
+            radial-gradient(circle at 40% 75%, #444 2.5px, transparent 2.5px);
+    background-size: 45px 45px, 55px 55px, 40px 40px, 50px 50px;
+    border-radius: 3px 3px 0 0;
+}
+
+.anatomy__3d-layer--asphalt .anatomy__3d-side {
+    background: linear-gradient(180deg, #333 0%, #222 100%);
+    border-radius: 0 3px 0 0;
+}
+
+/* === Подписи на слоях === */
+.anatomy__3d-label {
+    position: absolute;
+    right: -55px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.anatomy__3d-layer.built .anatomy__3d-label {
+    opacity: 0.7;
+}
+
+.anatomy__3d-layer.active .anatomy__3d-label {
+    opacity: 1;
+}
+
+.anatomy__3d-name {
+    font-size: 10px;
     font-weight: 700;
-    margin-bottom: 28px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+    letter-spacing: 0.05em;
 }
 
-.calculator__layers {
+.anatomy__3d-thick {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--accent);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+}
+
+/* --- Инфо-панель --- */
+.anatomy__info {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin-bottom: 28px;
 }
 
-.calculator__layer-header {
+.anatomy__header {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 14px;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.calculator__layer-name {
-    color: var(--text);
-    font-weight: 500;
-}
-
-.calculator__layer-price {
-    color: var(--text-secondary);
-}
-
-.calculator__slider {
-    width: 100%;
-    height: 6px;
-    -webkit-appearance: none;
-    appearance: none;
-    background: var(--border);
-    border-radius: 3px;
-    outline: none;
-    cursor: pointer;
-}
-
-.calculator__slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 22px;
-    height: 22px;
-    background: var(--accent);
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 10px var(--accent-glow);
-}
-
-.calculator__layer-value {
-    display: inline-block;
-    margin-top: 6px;
+.anatomy__step {
     font-size: 13px;
+    font-weight: 700;
     color: var(--accent);
-    font-weight: 600;
+    letter-spacing: 0.08em;
 }
 
-.calculator__options {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.anatomy__title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    transition: opacity 0.2s ease;
 }
 
-.calculator__option {
-    padding: 10px 20px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 100px;
+.anatomy__desc {
+    font-size: 16px;
     color: var(--text-secondary);
-    font-size: 14px;
-    cursor: pointer;
-    transition: all var(--transition);
-    font-family: inherit;
+    line-height: 1.5;
+    transition: opacity 0.2s ease;
 }
 
-.calculator__option:hover {
-    border-color: var(--accent);
+.anatomy__details {
+    display: flex;
+    gap: 32px;
+}
+
+.anatomy__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.anatomy__detail-value {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent);
+    transition: opacity 0.2s ease;
+}
+
+.anatomy__detail-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Навигация */
+.anatomy__nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.anatomy__nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--card);
     color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
 }
 
-.calculator__option.active {
-    background: var(--accent);
-    color: #fff;
+.anatomy__nav-btn:hover:not(:disabled) {
     border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(249,115,22,0.1);
 }
 
-.calculator__checkboxes {
+.anatomy__nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.anatomy__dots {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    justify-content: center;
+}
+
+.anatomy__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.anatomy__dot.active {
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+    width: 28px;
+    border-radius: 5px;
+}
+
+/* CTA */
+.anatomy__cta {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.anatomy__cta-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.anatomy__cta .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 1024px) {
+    .anatomy__grid { gap: 40px; }
+    .anatomy__3d-road { transform: rotateX(40deg) rotateY(-12deg); height: 330px; }
+    .anatomy__title { font-size: 28px; }
+}
+
+@media (max-width: 768px) {
+    .anatomy__grid { grid-template-columns: 1fr; gap: 32px; }
+    .anatomy__3d-scene { perspective: 800px; }
+    .anatomy__3d-road { max-width: 380px; height: 300px; transform: rotateX(40deg) rotateY(-10deg); }
+
+    .anatomy__3d-layer--soil { top: 220px; height: 65px; }
+    .anatomy__3d-layer--sand { top: 145px; height: 75px; }
+    .anatomy__3d-layer--gravel { top: 65px; height: 80px; }
+    .anatomy__3d-layer--asphalt { top: 0; height: 50px; }
+
+    .anatomy__3d-side { width: 35px; }
+    .anatomy__3d-label { right: -40px; }
+    .anatomy__3d-name { font-size: 8px; }
+    .anatomy__3d-thick { font-size: 11px; }
+    .anatomy__title { font-size: 24px; }
+    .anatomy__desc { font-size: 14px; }
+    .anatomy__detail-value { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+    .anatomy__3d-road { max-width: 310px; height: 270px; transform: rotateX(42deg) rotateY(-8deg); }
+
+    .anatomy__3d-layer--soil { top: 200px; height: 55px; }
+    .anatomy__3d-layer--sand { top: 135px; height: 65px; }
+    .anatomy__3d-layer--gravel { top: 65px; height: 70px; }
+    .anatomy__3d-layer--asphalt { top: 0; height: 45px; }
+
+    .anatomy__3d-side { width: 26px; }
+    .anatomy__3d-label { right: -32px; }
+    .anatomy__3d-name { font-size: 7px; }
+    .anatomy__3d-thick { font-size: 9px; }
+    .anatomy__title { font-size: 20px; }
+    .anatomy__desc { font-size: 13px; }
+    .anatomy__cta { padding: 16px; }
+}
+
+
+/* ==================== SERVICES (УСЛУГИ) ==================== */
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: all var(--transition);
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.calculator__checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    color: var(--text-secondary);
+.service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.calculator__checkbox input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--accent);
-    cursor: pointer;
+.service-card__icon {
+    margin-bottom: 4px;
 }
 
-.calculator__result {
-    background: var(--bg);
-    border-radius: var(--radius-sm);
-    padding: 24px;
-    border: 1px solid var(--border);
+.service-card__title {
+    font-size: 20px;
+    font-weight: 700;
 }
 
-.calculator__total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.calculator__total-price {
-    font-size: 28px;
+.service-card__price {
+    font-size: 22px;
     font-weight: 900;
     color: var(--accent);
 }
 
-.calculator__details {
+.service-card__desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.service-card__time {
+    display: inline-block;
+    background: rgba(249, 115, 22, 0.1);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+.services__footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.services__note {
     font-size: 13px;
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    font-style: italic;
 }
 
-.calculator__result .btn {
-    margin-top: 10px;
+/* ==================== АДАПТИВНОСТЬ SERVICES ==================== */
+@media (max-width: 768px) {
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-card__title {
+        font-size: 18px;
+    }
+
+    .service-card__price {
+        font-size: 20px;
+    }
 }
 
-/* ==================== PROJECTS ==================== */
-.projects__grid {
+@media (max-width: 480px) {
+    .service-card {
+        padding: 16px;
+        gap: 8px;
+    }
+
+    .service-card__title {
+        font-size: 16px;
+    }
+
+    .service-card__price {
+        font-size: 18px;
+    }
+
+    .service-card__desc {
+        font-size: 13px;
+    }
+}
+
+
+/* ==================== PROCESS ZIGZAG (КАК МЫ РАБОТАЕМ) ==================== */
+.process__zigzag {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+.process__zigzag::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--border);
+    transform: translateX(-50%);
+    z-index: 0;
+    border-radius: 3px;
+}
+.process__zigzag::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: 3px;
+    height: var(--progress-height, 0%);
+    transition: height 0.3s ease;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+.process__row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: 1fr 70px 1fr;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+}
+.process__row:last-child {
+    margin-bottom: 0;
+}
+
+/* Карточка */
+.process__card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: all var(--transition);
+    height: fit-content;
+}
+.process__card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+.process__card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.process__card-number {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    background: rgba(249, 115, 22, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.process__card-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+.process__card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+.process__card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.process__card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+.process__card-time {
+    display: inline-block;
+    background: rgba(249, 115, 22, 0.1);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Изображение — как карточка */
+.process__image {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all var(--transition);
+    background: var(--card);
+    height: 100%;
+}
+.process__image:hover {
+    border-color: var(--accent);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+}
+.process__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+.process__image:hover img {
+    transform: scale(1.05);
+}
+.process__image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Коннектор */
+.process__connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 24px;
+    height: 100%;
+}
+.process__dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    z-index: 3;
+    transition: all 0.4s ease;
+}
+.process__dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 20px var(--accent-glow);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+    50% { box-shadow: 0 0 35px rgba(249, 115, 22, 0.6); }
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 1024px) {
+    .process__row { grid-template-columns: 1fr 60px 1fr; margin-bottom: 32px; }
+    .process__card { padding: 20px; }
+    .process__card-title { font-size: 18px; }
+}
+
+@media (max-width: 768px) {
+    .process__zigzag::before,
+    .process__zigzag::after { left: 28px; }
+    .process__row {
+        grid-template-columns: 56px 1fr;
+        grid-template-rows: auto auto;
+        margin-bottom: 24px;
+        gap: 12px 0;
+    }
+    .process__connector {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        padding-top: 20px;
+    }
+    .process__card {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .process__image {
+        grid-column: 2;
+        grid-row: 2;
+        display: block !important;
+        max-height: 200px;
+        aspect-ratio: 16/9;
+    }
+    .process__dot { width: 34px; height: 34px; font-size: 12px; }
+    .process__card-title { font-size: 16px; }
+    .process__card-desc { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+    .process__zigzag::before,
+    .process__zigzag::after { left: 20px; }
+    .process__row { grid-template-columns: 40px 1fr; margin-bottom: 20px; }
+    .process__card { padding: 14px; }
+    .process__card-top { gap: 8px; }
+    .process__card-number { width: 30px; height: 30px; font-size: 12px; }
+    .process__card-icon svg { width: 22px; height: 22px; }
+    .process__card-title { font-size: 15px; }
+    .process__dot { width: 28px; height: 28px; font-size: 11px; }
+    .process__image { max-height: 160px; }
+}
+
+/* ==================== MY PROJECTS ==================== */
+.myprojects__counter {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.myprojects__counter-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    display: block;
+}
+.myprojects__counter-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.myprojects__filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+.myprojects__filter {
+    padding: 10px 22px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: inherit;
+}
+.myprojects__filter:hover {
+    border-color: rgba(249,115,22,0.4);
+    color: var(--text);
+}
+.myprojects__filter.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+
+.myprojects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
 }
 
 .project-card {
@@ -650,64 +1713,459 @@ a {
     border-radius: var(--radius);
     overflow: hidden;
     transition: all var(--transition);
+    cursor: pointer;
 }
-
 .project-card:hover {
     border-color: var(--accent);
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
-
 .project-card__image {
     position: relative;
-    height: 220px;
+    height: 240px;
     overflow: hidden;
 }
-
 .project-card__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
 }
-
 .project-card:hover .project-card__image img {
     transform: scale(1.05);
 }
-
-.project-card__badge {
+.project-card__overlay {
     position: absolute;
-    top: 16px;
-    left: 16px;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+}
+.project-card__category {
+    display: inline-block;
     background: var(--accent);
     color: #fff;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 100px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.06em;
 }
-
 .project-card__content {
-    padding: 20px;
+    padding: 18px 20px;
 }
-
 .project-card__title {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+.project-card__tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.project-card__tags span {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: var(--bg);
+    padding: 4px 10px;
+    border-radius: 100px;
+}
+.project-card {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.project-card.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
 }
 
-.project-card__info {
-    font-size: 13px;
+@media (max-width: 768px) {
+    .myprojects__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .project-card__image { height: 200px; }
+    .project-card__title { font-size: 16px; }
+    .myprojects__filter { padding: 8px 16px; font-size: 13px; }
+}
+@media (max-width: 480px) {
+    .myprojects__filters { gap: 6px; }
+    .myprojects__filter { padding: 7px 14px; font-size: 12px; }
+    .project-card__image { height: 180px; }
+    .project-card__content { padding: 14px 16px; }
+    .project-card__title { font-size: 15px; }
+}
+
+/* ==================== ROAD CALCULATOR ==================== */
+.road-calc__types {
+    display: flex;
+    gap: 12px;
+    padding: 24px 32px 0;
+    flex-wrap: wrap;
+}
+.road-calc__type {
+    flex: 1;
+    min-width: 140px;
+    padding: 16px 20px;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-align: center;
+    font-family: inherit;
+    color: var(--text);
+}
+.road-calc__type:hover { border-color: rgba(249,115,22,0.4); }
+.road-calc__type.active {
+    border-color: var(--accent);
+    background: rgba(249,115,22,0.05);
+}
+.road-calc__type-name { display: block; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.road-calc__type-price { font-size: 18px; font-weight: 900; color: var(--accent); }
+
+.road-calc__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px 32px;
+    align-items: start;
+}
+
+/* ===== 3D-визуал как в анатомии ===== */
+.road-calc__visual-3d {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.road-calc__visual-3d .anatomy__3d-scene {
+    perspective: 800px;
+    perspective-origin: 50% 40%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px 10px;
+    background: radial-gradient(ellipse at 50% 30%, #1a1a1a 0%, var(--bg) 70%);
+    min-height: 300px;
+    align-items: center;
+}
+.road-calc__visual-3d .anatomy__3d-road {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 280px;
+    transform: rotateX(35deg) rotateY(-15deg);
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+.road-calc__depth-info {
+    text-align: center;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.2);
+}
+.road-calc__depth-value {
+    font-size: 24px;
+    font-weight: 900;
     color: var(--accent);
+    display: block;
+}
+.road-calc__depth-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Слайдеры */
+.road-calc__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.road-calc__slider-group {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+.road-calc__slider-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
     margin-bottom: 8px;
 }
-
-.project-card__desc {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.5;
+.road-calc__slider-header span:first-child { color: var(--text); font-weight: 500; }
+.road-calc__slider-price { color: var(--text-secondary); font-weight: 600; }
+.road-calc__slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+.road-calc__slider {
+    flex: 1;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--border);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+.road-calc__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+.road-calc__slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+.road-calc__slider-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 38px;
+    text-align: right;
+}
+
+/* Результат */
+.road-calc__result {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 32px;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 0 0 12px 12px;
+}
+.road-calc__result-label { font-size: 13px; color: var(--text-secondary); }
+.road-calc__result-price { font-size: 30px; font-weight: 900; color: var(--accent); }
+.road-calc__result-details { font-size: 11px; color: var(--text-secondary); line-height: 1.5; }
+.road-calc__result-btn { white-space: nowrap; }
+
+/* ==================== АДАПТИВНОСТЬ ROAD CALC ==================== */
+@media (max-width: 1100px) {
+    .road-calc__body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    .road-calc__visual-3d .anatomy__3d-scene { min-height: 260px; }
+    .road-calc__types { padding: 16px 20px 0; }
+    .road-calc__result {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 16px 20px;
+        text-align: center;
+    }
+    .road-calc__result-btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .road-calc__types { padding: 12px 14px 0; gap: 8px; }
+    .road-calc__type { padding: 12px 16px; min-width: auto; }
+    .road-calc__type-price { font-size: 16px; }
+    .road-calc__body { padding: 14px; gap: 16px; }
+    .road-calc__visual-3d .anatomy__3d-scene { min-height: 240px; }
+    .road-calc__visual-3d .anatomy__3d-road { max-width: 340px; height: 240px; }
+    .road-calc__result-price { font-size: 24px; }
+    .road-calc__slider-group { padding: 12px 14px; }
+}
+
+@media (max-width: 480px) {
+    .road-calc__types { flex-direction: column; padding: 10px 10px 0; }
+    .road-calc__type { padding: 10px 14px; }
+    .road-calc__type-name { font-size: 13px; }
+    .road-calc__type-price { font-size: 15px; }
+    .road-calc__body { padding: 10px; }
+    .road-calc__visual-3d .anatomy__3d-scene { min-height: 220px; padding: 20px 10px 5px; }
+    .road-calc__visual-3d .anatomy__3d-road { max-width: 290px; height: 210px; }
+    .road-calc__result { padding: 14px; }
+    .road-calc__result-price { font-size: 22px; }
+    .road-calc__depth-value { font-size: 20px; }
+}
+
+/* ==================== ДО/ПОСЛЕ ==================== */
+.ba__tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+.ba__tab {
+    padding: 10px 22px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: inherit;
+}
+.ba__tab:hover { border-color: rgba(249,115,22,0.4); color: var(--text); }
+.ba__tab.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+.ba__compare-wrapper { max-width: 900px; margin: 0 auto 24px; }
+
+/* Контейнер сравнения */
+.ba__compare {
+    position: relative;
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    border: 1px solid var(--border);
+    cursor: col-resize;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Оба изображения */
+.ba__image {
+    position: absolute;
+    inset: 0;
+}
+.ba__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* НИЖНЕЕ фото — ДО (видно всегда) */
+.ba__image--bottom {
+    z-index: 1;
+}
+
+/* ВЕРХНЕЕ фото — ПОСЛЕ (закрывает нижнее, открывается справа) */
+.ba__image--top {
+    z-index: 2;
+    /* Открываем левую часть — показываем ПОСЛЕ */
+    clip-path: inset(0 50% 0 0);
+    transition: clip-path 0.05s ease;
+}
+
+/* Метки */
+.ba__label {
+    position: absolute;
+    top: 18px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    z-index: 5;
+    pointer-events: none;
+}
+.ba__label--before {
+    left: 18px;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+.ba__label--after {
+    right: 18px;
+    background: rgba(249,115,22,0.9);
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+/* Разделитель */
+.ba__divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+.ba__divider-line {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
+}
+.ba__divider-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+    color: #0a0a0a;
+    pointer-events: auto;
+    cursor: col-resize;
+}
+
+/* Инфо */
+.ba__info { max-width: 500px; margin: 0 auto; }
+.ba__info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    text-align: center;
+}
+.ba__info-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 12px;
+}
+.ba__info-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 2px;
+}
+.ba__info-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 768px) {
+    .ba__tab { padding: 8px 16px; font-size: 12px; }
+    .ba__compare { aspect-ratio: 4/3; }
+    .ba__divider-handle { width: 40px; height: 40px; }
+    .ba__label { top: 10px; padding: 6px 14px; font-size: 12px; }
+    .ba__info-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+@media (max-width: 480px) {
+    .ba__tabs { flex-direction: column; align-items: stretch; }
+    .ba__tab { text-align: center; }
+}
+
+
+
+
 
 /* ==================== REVIEWS ==================== */
 .reviews__slider {
@@ -799,10 +2257,8 @@ a {
 
 /* ==================== CONTACT ==================== */
 .contact__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .contact__items {
@@ -914,9 +2370,14 @@ a {
 .footer__cert {
     display: flex;
     gap: 16px;
-    font-size: 12px;
+}
+.footer__cert a {
+    font-size: 13px;
     color: var(--text-secondary);
-    letter-spacing: 0.05em;
+    transition: color var(--transition);
+}
+.footer__cert a:hover {
+    color: var(--accent);
 }
 
 /* ==================== АДАПТИВНОСТЬ ==================== */
@@ -1012,5 +2473,88 @@ a {
 
     .contact__form {
         padding: 20px;
+    }
+}
+
+
+/* ===== ИСПРАВЛЕНИЕ ДЛЯ КАЛЬКУЛЯТОРА ===== */
+.road-calc__visual-3d .anatomy__3d-layer {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+}
+.road-calc__visual-3d .anatomy__3d-layer .anatomy__3d-top,
+.road-calc__visual-3d .anatomy__3d-layer .anatomy__3d-front,
+.road-calc__visual-3d .anatomy__3d-layer .anatomy__3d-side {
+    display: block !important;
+}
+.road-calc__visual-3d .anatomy__3d-label {
+    opacity: 0.85 !important;
+}
+.road-calc__visual-3d .anatomy__3d-layer--asphalt .anatomy__3d-label {
+    opacity: 1 !important;
+}
+
+/* ==================== WHATSAPP BUTTON ==================== */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: whatsapp-pulse 2s infinite;
+}
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+    background: #1faa50;
+}
+.whatsapp-btn:active {
+    transform: scale(0.95);
+}
+
+@keyframes whatsapp-pulse {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 8px 40px rgba(37, 211, 102, 0.7);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 54px;
+        height: 54px;
+    }
+    .whatsapp-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+    }
+    .whatsapp-btn svg {
+        width: 22px;
+        height: 22px;
     }
 }
