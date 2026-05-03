@@ -419,6 +419,46 @@ if (myProjectFilters.length && myProjectCards.length) {
     });
 }
 
+
+// ==================== FAQ АККОРДЕОН ====================
+const faqQuestions = document.querySelectorAll('.faq__question');
+const faqSearch = document.getElementById('faq-search');
+const faqItems = document.querySelectorAll('.faq__item');
+
+// Аккордеон
+faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Закрыть все
+        faqItems.forEach(fi => fi.classList.remove('active'));
+
+        // Открыть текущий (если был не активен)
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Поиск
+if (faqSearch) {
+    faqSearch.addEventListener('input', () => {
+        const query = faqSearch.value.toLowerCase().trim();
+
+        faqItems.forEach(item => {
+            const keywords = item.getAttribute('data-faq') || '';
+            const questionText = item.querySelector('.faq__text').textContent.toLowerCase();
+
+            if (!query || keywords.includes(query) || questionText.includes(query)) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    });
+}
+
 // ==================== ANATOMY 3D ====================
 const anatomy3dLayers = document.querySelectorAll('.anatomy__3d-layer');
 const anatomyDots = document.querySelectorAll('.anatomy__dot');

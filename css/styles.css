@@ -2380,6 +2380,7 @@ a {
     color: var(--accent);
 }
 
+
 /* ==================== АДАПТИВНОСТЬ ==================== */
 @media (max-width: 1024px) {
     .contact__grid {
@@ -2556,5 +2557,356 @@ a {
     .whatsapp-btn svg {
         width: 22px;
         height: 22px;
+    }
+}
+
+
+/* ==================== FAQ ==================== */
+.faq {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Оранжевый блик на фоне секции */
+.faq::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 60%;
+    height: 160%;
+    background: linear-gradient(
+            135deg,
+            transparent 35%,
+            rgba(249, 115, 22, 0.03) 44%,
+            rgba(249, 115, 22, 0.08) 50%,
+            rgba(249, 115, 22, 0.03) 56%,
+            transparent 65%
+    );
+    animation: faq-section-glare 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes faq-section-glare {
+    0% {
+        transform: translateX(-40%) translateY(-20%) rotate(20deg);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(120%) translateY(20%) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+.faq .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Сетка */
+.faq__grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Левая колонка */
+.faq__visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    position: sticky;
+    top: 100px;
+}
+
+/* Иконка */
+.faq__illustration {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Волны внутри иконки */
+.faq__wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    opacity: 0.6;
+    animation: faq-wave-move 6s ease-in-out infinite;
+}
+.faq__wave-svg--2 {
+    bottom: 10px;
+    opacity: 0.3;
+    animation: faq-wave-move 8s ease-in-out infinite reverse;
+}
+@keyframes faq-wave-move {
+    0%, 100% { transform: translateX(0) scaleX(1); }
+    25% { transform: translateX(-5px) scaleX(1.1); }
+    50% { transform: translateX(0) scaleX(1); }
+    75% { transform: translateX(5px) scaleX(1.1); }
+}
+
+/* Блик */
+.faq__glare {
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 80%;
+    height: 200%;
+    background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 55%, transparent 70%);
+    animation: faq-glare 3s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+@keyframes faq-glare {
+    0% { transform: translateX(-100%) translateY(-30%) rotate(30deg); }
+    100% { transform: translateX(200%) translateY(30%) rotate(30deg); }
+}
+
+/* Пульсация границы */
+.faq__illustration::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    animation: faq-border-pulse 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+@keyframes faq-border-pulse {
+    0%, 100% {
+        border-color: rgba(249, 115, 22, 0.1);
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.1);
+    }
+    50% {
+        border-color: rgba(249, 115, 22, 0.3);
+        box-shadow: 0 0 25px 6px rgba(249, 115, 22, 0.08);
+    }
+}
+
+/* Счётчик */
+.faq__counter--left {
+    text-align: center;
+}
+.faq__counter-badge {
+    display: inline-block;
+    background: rgba(249,115,22,0.1);
+    color: var(--accent);
+    padding: 7px 18px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+/* CTA слева */
+.faq__cta--left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.faq__cta-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Правая колонка */
+.faq__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Поиск */
+.faq__search {
+    position: relative;
+}
+.faq__search svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+.faq__search-input {
+    width: 100%;
+    padding: 13px 16px 13px 44px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color var(--transition);
+}
+.faq__search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+.faq__search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Список */
+.faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.faq__item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: all var(--transition);
+}
+.faq__item:hover {
+    border-color: rgba(249,115,22,0.3);
+}
+.faq__item.active {
+    border-color: var(--accent);
+}
+.faq__item.hidden {
+    display: none;
+}
+
+.faq__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: color var(--transition);
+}
+.faq__question:hover {
+    color: var(--accent);
+}
+.faq__number {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.5;
+    min-width: 22px;
+}
+.faq__text {
+    flex: 1;
+}
+.faq__icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    position: relative;
+    flex-shrink: 0;
+    transition: all var(--transition);
+}
+.faq__icon::before,
+.faq__icon::after {
+    content: '';
+    position: absolute;
+    background: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+.faq__icon::before {
+    width: 10px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.faq__icon::after {
+    width: 2px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.faq__item.active .faq__icon {
+    border-color: var(--accent);
+    background: rgba(249,115,22,0.1);
+}
+.faq__item.active .faq__icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    opacity: 0;
+}
+
+.faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq__item.active .faq__answer {
+    max-height: 200px;
+}
+.faq__answer p {
+    padding: 0 18px 16px 50px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 768px) {
+    .faq__grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .faq__visual {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .faq__illustration {
+        width: 120px;
+        height: 120px;
+    }
+    .faq__question {
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+    .faq__answer p {
+        padding: 0 16px 14px 44px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 480px) {
+    .faq__illustration {
+        width: 100px;
+        height: 100px;
     }
 }
