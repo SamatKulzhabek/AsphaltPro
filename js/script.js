@@ -315,28 +315,28 @@ const baTabs = document.querySelectorAll('.ba__tab');
 
 const projectsData = {
     1: {
-        before: './imgs/ba/6.png',
-        after: './imgs/ba/7.png',
+        before: './imgs/ba/6.jpg',
+        after: './imgs/ba/7.jpg',
         area: '450 м²', days: '5 дней', year: '2026'
     },
     2: {
-        before: './imgs/ba/4.png',
-        after: './imgs/ba/3.png',
+        before: './imgs/ba/4.jpg',
+        after: './imgs/ba/3.jpg',
         area: '320 м²', days: '7 дней', year: '2026'
     },
     3: {
-        before: './imgs/ba/5.png',
-        after: './imgs/ba/3.png',
+        before: './imgs/ba/5.jpg',
+        after: './imgs/ba/3.jpg',
         area: '800 м²', days: '14 дней', year: '2026'
     },
     4: {
-        before: './imgs/ba/6.png',
-        after: './imgs/ba/7.png',
+        before: './imgs/ba/6.jpg',
+        after: './imgs/ba/7.jpg',
         area: '200 м²', days: '3 дня', year: '2026'
     },
     5: {
-        before: './imgs/ba/8.png',
-        after: './imgs/ba/9.png',
+        before: './imgs/ba/8.jpg',
+        after: './imgs/ba/9.jpg',
         area: '1200 м²', days: '21 день', year: '2025'
     }
 };
