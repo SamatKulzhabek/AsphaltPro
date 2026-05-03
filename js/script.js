@@ -387,6 +387,51 @@ if (baCompare && baDivider && baTopImage) {
     setDivider(50);
 }
 
+// ==================== ВИДЕО В КАРТОЧКАХ ====================
+const videoCards = document.querySelectorAll('.project-card--video');
+
+videoCards.forEach(card => {
+    const video = card.querySelector('video');
+    const playBtn = card.querySelector('.project-card__play');
+
+    if (!video || !playBtn) return;
+
+    // При наведении — показываем видео
+    card.addEventListener('mouseenter', () => {
+        video.play().catch(() => {});
+        playBtn.style.opacity = '0';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+        playBtn.style.opacity = '1';
+    });
+
+    // Клик по кнопке Play
+    playBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (video.paused) {
+            video.play();
+            playBtn.style.opacity = '0';
+        } else {
+            video.pause();
+            playBtn.style.opacity = '1';
+        }
+    });
+
+    // Тач на мобильных
+    card.addEventListener('touchstart', () => {
+        if (video.paused) {
+            video.play().catch(() => {});
+            playBtn.style.opacity = '0';
+        } else {
+            video.pause();
+            playBtn.style.opacity = '1';
+        }
+    }, { passive: true });
+});
+
 
 // ==================== ФИЛЬТР ПРОЕКТОВ ====================
 const myProjectFilters = document.querySelectorAll('.myprojects__filter');

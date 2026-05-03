@@ -172,7 +172,7 @@
                     <p class="hero__utp-title">Под каждой дорогой — невидимая крепость</p>
                     <p class="hero__utp-text">
                         Инженерный подход: от геодезии до финишного слоя.<br class="hero__utp-br" />
-                        Все этапы фиксируем в договоре и даём гарантию <strong>до 5 лет</strong>.
+                        Все этапы фиксируем в договоре и даём гарантию <strong>до 2 лет</strong>.
                     </p>
                 </div>
             </div>
@@ -202,12 +202,12 @@
                 </div>
                 <div class="hero__stat-divider"></div>
                 <div class="hero__stat">
-                    <span class="hero__stat-number">10<span class="hero__stat-plus">+</span></span>
+                    <span class="hero__stat-number">5<span class="hero__stat-plus">+</span></span>
                     <span class="hero__stat-label">лет на рынке<br />Казахстана</span>
                 </div>
                 <div class="hero__stat-divider"></div>
                 <div class="hero__stat">
-                    <span class="hero__stat-number">5</span>
+                    <span class="hero__stat-number">2</span>
                     <span class="hero__stat-label">лет гарантии<br />на все работы</span>
                 </div>
                 <div class="hero__stat-divider"></div>
@@ -590,7 +590,7 @@
                             </button>
                             <button class="road-calc__type" data-type="standard">
                                 <span class="road-calc__type-name">Стандартный</span>
-                                <span class="road-calc__type-price">12 000 ₸/м²</span>
+                                <span class="road-calc__type-price">11 150 ₸/м²</span>
                             </button>
                             <button class="road-calc__type" data-type="premium">
                                 <span class="road-calc__type-name">Премиум</span>
@@ -659,7 +659,7 @@
                                         <span class="road-calc__slider-price">1 000 ₸/см</span>
                                     </div>
                                     <div class="road-calc__slider-row">
-                                        <input type="range" min="3" max="8" value="5" class="road-calc__slider" id="asphalt-slider">
+                                        <input type="range" min="3" max="10" value="5" class="road-calc__slider" id="asphalt-slider">
                                         <span class="road-calc__slider-value" id="asphalt-value">5 см</span>
                                     </div>
                                 </div>
@@ -791,12 +791,12 @@
     </section>
 
 
-    <!-- ==================== БЛОК: НАШИ ПРОЕКТЫ ==================== -->
+    <!-- ==================== БЛОК: МОИ РАБОТЫ ==================== -->
     <section class="myprojects section" id="myprojects">
         <div class="container">
             <div class="section__header" data-animate="fade-up">
-                <h2 class="section__title">Реализованные проекты</h2>
-                <p class="section__subtitle">Более 500 проектов по всему Казахстану — от частных дворов до промышленных объектов</p>
+                <h2 class="section__title">Наши работы</h2>
+                <p class="section__subtitle">Реальные проекты — фото и видео с объектов</p>
             </div>
 
             <!-- Счётчик -->
@@ -808,20 +808,86 @@
             <!-- Фильтры -->
             <div class="myprojects__filters" data-animate="fade-up" data-delay="150">
                 <button class="myprojects__filter active" data-filter="all">Все</button>
+                <button class="myprojects__filter" data-filter="video">Видео</button>
+                <button class="myprojects__filter" data-filter="photo">Фото</button>
                 <button class="myprojects__filter" data-filter="road">Дороги</button>
                 <button class="myprojects__filter" data-filter="tile">Плитка</button>
                 <button class="myprojects__filter" data-filter="landscape">Ландшафт</button>
-                <button class="myprojects__filter" data-filter="sport">Спорт</button>
             </div>
 
-            <!-- Сетка -->
+            <!-- Сетка работ -->
             <div class="myprojects__grid" data-animate="fade-up" data-delay="200">
-                <div class="project-card" data-category="road">
-                    <div class="project-card__image">
-                        <img src="./imgs/s4.jpg" alt="Трасса" loading="lazy" />
-                        <div class="project-card__overlay">
-                            <span class="project-card__category">ДОРОГИ</span>
+
+                <!-- Видео 1: вертикальное -->
+                <div class="project-card project-card--video" data-category="video road">
+                    <div class="project-card__video">
+                        <video src="./imgs/works/work1.mp4" poster="./imgs/s4.jpg" muted loop playsinline preload="metadata"></video>
+                        <button class="project-card__play" aria-label="Воспроизвести">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+                        </button>
+                        <span class="project-card__duration">0:45</span>
+                    </div>
+                    <div class="project-card__overlay">
+                        <span class="project-card__category">ВИДЕО</span>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Асфальтирование</h3>
+                        <div class="project-card__tags">
+                            <span>450 м²</span>
+                            <span>3 дня</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Видео 2: вертикальное -->
+                <div class="project-card project-card--video" data-category="video tile">
+                    <div class="project-card__video">
+                        <video src="./imgs/works/work2.mp4" poster="./imgs/s2.jpg" muted loop playsinline preload="metadata"></video>
+                        <button class="project-card__play">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+                        </button>
+                        <span class="project-card__duration">1:20</span>
+                    </div>
+                    <div class="project-card__overlay">
+                        <span class="project-card__category">ВИДЕО</span>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Асфальтирование</h3>
+                        <div class="project-card__tags">
+                            <span>320 м²</span>
+                            <span>5 дней</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Видео 3: вертикальное -->
+                <div class="project-card project-card--video" data-category="video tile">
+                    <div class="project-card__video">
+                        <video src="./imgs/works/work3.mp4" poster="./imgs/s5.jpg" muted loop playsinline preload="metadata"></video>
+                        <button class="project-card__play">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+                        </button>
+                        <span class="project-card__duration">1:20</span>
+                    </div>
+                    <div class="project-card__overlay">
+                        <span class="project-card__category">ВИДЕО</span>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Асфальтирование</h3>
+                        <div class="project-card__tags">
+                            <span>320 м²</span>
+                            <span>5 дней</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 1 -->
+                <div class="project-card" data-category="photo road">
+                    <div class="project-card__image">
+                        <img src="./imgs/s4.jpg" alt="Асфальтирование дороги" loading="lazy" />
+                    </div>
+                    <div class="project-card__overlay">
+                        <span class="project-card__category">ФОТО</span>
                     </div>
                     <div class="project-card__content">
                         <h3 class="project-card__title">Ночное строительство трассы</h3>
@@ -832,18 +898,36 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="landscape">
+                <!-- Фото 2 -->
+                <div class="project-card" data-category="photo landscape">
                     <div class="project-card__image">
-                        <img src="./imgs/ba/8.png" alt="Парк" loading="lazy" />
-                        <div class="project-card__overlay">
-                            <span class="project-card__category">ЛАНДШАФТ</span>
-                        </div>
+                        <img src="./imgs/ba/5.jpg" alt="Ландшафтный дизайн" loading="lazy" />
+                    </div>
+                    <div class="project-card__overlay">
+                        <span class="project-card__category">ФОТО</span>
                     </div>
                     <div class="project-card__content">
-                        <h3 class="project-card__title">Бизнес центр</h3>
+                        <h3 class="project-card__title">Ландшафтный дизайн участка</h3>
+                        <div class="project-card__tags">
+                            <span>800 м²</span>
+                            <span>Полный цикл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Фото 3 -->
+                <div class="project-card" data-category="photo tile">
+                    <div class="project-card__image">
+                        <img src="./imgs/ba/4.jpg" alt="Укладка плитки" loading="lazy" />
+                    </div>
+                    <div class="project-card__overlay">
+                        <span class="project-card__category">ФОТО</span>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Укладка плитки</h3>
                         <div class="project-card__tags">
                             <span>1 200 м²</span>
-                            <span>Полный цикл</span>
+                            <span>Укладка плитки</span>
                         </div>
                     </div>
                 </div>
@@ -1068,8 +1152,8 @@
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__copyright">
-                    <span class="logo__text">Asphalt<span class="logo__accent">Pro</span></span>
-                    <p>© 2025 ТОО AsphaltPro. Все права защищены.</p>
+                    <span class="logo__text">DSK<span class="logo__accent">SENIM</span></span>
+                    <p>© 2025 ТОО DSKSENIM. Все права защищены.</p>
                 </div>
 
                 <nav class="footer__links">
